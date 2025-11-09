@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News & Education - Iqra Batool</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --burgundy: #8B1538;
+            --dark-burgundy: #6B0F2A;
+            --gold: #D4AF37;
+            --light-gold: #F4E4B8;
+            --cream: #FFF8E7;
+            --text-dark: #2c2c2c;
+            --text-light: #f5f5f5;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--cream);
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--burgundy);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: var(--gold);
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--light-gold);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            padding-top: 100px;
+            background: linear-gradient(135deg, var(--burgundy) 0%, var(--dark-burgundy) 100%);
+            color: var(--text-light);
+            padding-bottom: 3rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--light-gold);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--burgundy);
+            margin-bottom: 2rem;
+            border-bottom: 3px solid var(--gold);
+            padding-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        /* NEWS CAROUSEL STYLES */
+        .news-carousel-container {
+            position: relative;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(139, 21, 56, 0.15);
+            overflow: hidden;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .carousel-wrapper {
+            overflow: hidden;
+            position: relative;
+            height: 400px;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+        }
+
+        .news-card {
+            min-width: 100%;
+            padding: 2rem;
+            box-sizing: border-box;
+        }
+
+        .news-date {
+            display: inline-block;
+            background: var(--burgundy);
+            color: var(--gold);
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .news-title {
+            color: var(--burgundy);
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .news-content {
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .news-badge {
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            background: var(--light-gold);
+            color: var(--dark-burgundy);
+        }
+
+        /* Carousel Controls */
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .carousel-btn {
+            background: var(--burgundy);
+            color: var(--gold);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(139, 21, 56, 0.3);
+        }
+
+        .carousel-btn:hover {
+            background: var(--dark-burgundy);
+            transform: scale(1.1);
+        }
+
+        .carousel-indicators {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--light-gold);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .indicator.active {
+            background: var(--burgundy);
+            transform: scale(1.3);
+        }
+
+        .autoplay-toggle {
+            background: var(--gold);
+            color: var(--dark-burgundy);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .autoplay-toggle:hover {
+            background: var(--light-gold);
+            transform: scale(1.05);
+        }
+
+        /* EDUCATION SECTION STYLES */
+        .education-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .education-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(139, 21, 56, 0.1);
+            border-left: 5px solid var(--burgundy);
+            transition: all 0.3s;
+        }
+
+        .education-card:hover {
+            box-shadow: 0 10px 30px rgba(139, 21, 56, 0.2);
+            transform: translateX(10px);
+        }
+
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .degree-info {
+            flex: 1;
+        }
+
+        .degree-title {
+            color: var(--burgundy);
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .institution {
+            color: var(--gold);
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .location {
+            color: #666;
+            font-size: 1rem;
+            margin-top: 0.3rem;
+        }
+
+        .education-date {
+            color: var(--burgundy);
+            font-size: 1.2rem;
+            font-weight: bold;
+            background: var(--light-gold);
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+        }
+
+        .education-details {
+            margin-top: 1.5rem;
+        }
+
+        .thesis-info {
+            background: linear-gradient(135deg, var(--light-gold), var(--cream));
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            border-left: 3px solid var(--gold);
+        }
+
+        .thesis-info strong {
+            color: var(--burgundy);
+            font-size: 1.1rem;
+        }
+
+        .thesis-info p {
+            color: var(--text-dark);
+            margin-top: 0.5rem;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .achievement-badge {
+            display: inline-block;
+            background: var(--burgundy);
+            color: var(--gold);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-top: 1rem;
+            margin-right: 0.5rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, var(--burgundy) 0%, var(--dark-burgundy) 100%);
+            padding: 2.5rem;
+            border-radius: 15px;
+            color: white;
+            text-align: center;
+            margin-top: 3rem;
+            box-shadow: 0 10px 30px rgba(139, 21, 56, 0.3);
+        }
+
+        .highlight-box h3 {
+            color: var(--gold);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .highlight-box p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        footer {
+            background: var(--dark-burgundy);
+            color: var(--light-gold);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .carousel-wrapper {
+                height: 500px;
+            }
+
+            .news-title {
+                font-size: 1.4rem;
+            }
+
+            .degree-title {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="portfolio-fixed.html" class="logo">Iqra Batool</a>
+            <ul class="nav-links">
+                <li><a href="portfolio-fixed.html#about">About</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="portfolio-fixed.html#research">Research</a></li>
+                <li><a href="portfolio-fixed.html#publications">Publications</a></li>
+                <li><a href="portfolio-fixed.html#team">Team</a></li>
+                <li><a href="portfolio-fixed.html#teaching">Teaching</a></li>
+                <li><a href="portfolio-fixed.html#education">Education</a></li>
+                <li><a href="portfolio-fixed.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>📰 Latest News & Updates</h1>
+        <p>Stay updated with my research achievements, publications, and academic milestones</p>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">🌟 Latest News & Updates</h2>
+        
+        <div class="news-carousel-container">
+            <div class="carousel-wrapper">
+                <div class="carousel-track" id="carouselTrack">
+                    <!-- News Card 1 -->
+                    <div class="news-card">
+                        <span class="news-date">🎉 November 2025</span>
+                        <h3 class="news-title">Multiple Papers Accepted at Premier Conferences</h3>
+                        <p class="news-content">
+                            Excited to announce that 5 papers have been accepted at top-tier conferences including IEEE GLOBECOM, IEEE VTC, and IEEE ScalCom! Topics range from THz beam alignment to privacy-preserving federated learning in 6G networks. This achievement represents months of rigorous research and collaboration with international experts.
+                        </p>
+                        <span class="news-badge">🏆 Conference Acceptances</span>
+                    </div>
+
+                    <!-- News Card 2 -->
+                    <div class="news-card">
+                        <span class="news-date">📝 October 2025</span>
+                        <h3 class="news-title">Journal Paper Under Major Revision at IEEE IoTJ</h3>
+                        <p class="news-content">
+                            Our paper "AMADRL: Privacy-Aware Attention-Based Multi-Agent Deep Reinforcement Learning for Optimizing Spectral Allocation in 6G Vehicular Networks" has been accepted with major revisions at IEEE Internet of Things Journal, one of the top journals in the field (Impact Factor: 10.6).
+                        </p>
+                        <span class="news-badge">📊 Journal Progress</span>
+                    </div>
+
+                    <!-- News Card 3 -->
+                    <div class="news-card">
+                        <span class="news-date">🏆 September 2025</span>
+                        <h3 class="news-title">Paper Published in IEEE IoTJ</h3>
+                        <p class="news-content">
+                            Our research on "Joint Optimization of IRS and THz Resource Allocation in 6G IoT Networks" has been published in IEEE Internet of Things Journal! This work introduces an adaptive online MADDPG approach for next-generation networks and represents a significant contribution to 6G research.
+                        </p>
+                        <span class="news-badge">✅ Published</span>
+                    </div>
+
+                    <!-- News Card 4 -->
+                    <div class="news-card">
+                        <span class="news-date">🎤 June 2025</span>
+                        <h3 class="news-title">Presented at IEEE SmartNets 2024</h3>
+                        <p class="news-content">
+                            Successfully presented our work on "Deep Learning-Based Throughput Prediction in 5G Cellular Networks" at the International Conference of Smart Applications, Communication and Networking in the USA. Received excellent feedback from researchers and industry professionals.
+                        </p>
+                        <span class="news-badge">🎙️ Conference Presentation</span>
+                    </div>
+
+                    <!-- News Card 5 -->
+                    <div class="news-card">
+                        <span class="news-date">📚 May 2025</span>
+                        <h3 class="news-title">Book Chapters Submitted to IET Series</h3>
+                        <p class="news-content">
+                            Two book chapters on intelligent and trustworthy resource allocation for 6G-enabled IoT sensing networks have been submitted to the prestigious IET International Book Series on Sensors. These chapters synthesize years of research in AI-driven network optimization.
+                        </p>
+                        <span class="news-badge">📖 Book Chapters</span>
+                    </div>
+
+                    <!-- News Card 6 -->
+                    <div class="news-card">
+                        <span class="news-date">🌟 December 2024</span>
+                        <h3 class="news-title">Joined Western University as Lecturer & Ph.D. Researcher</h3>
+                        <p class="news-content">
+                            Started my journey at Western University, London, Ontario, combining research in 5G/6G networks with teaching courses in Java, Python, Software Engineering, and Web Development. This role allows me to contribute to both cutting-edge research and student development.
+                        </p>
+                        <span class="news-badge">🎓 Career Milestone</span>
+                    </div>
+
+                    <!-- News Card 7 -->
+                    <div class="news-card">
+                        <span class="news-date">🏅 September 2024</span>
+                        <h3 class="news-title">Full Ph.D. Scholarship Awarded</h3>
+                        <p class="news-content">
+                            Awarded a full Ph.D. scholarship at Western University for research in AI-driven resource allocation in next-generation networks. This competitive scholarship covers tuition, research expenses, and living costs for the duration of the doctoral program.
+                        </p>
+                        <span class="news-badge">💰 Scholarship</span>
+                    </div>
+
+                    <!-- News Card 8 -->
+                    <div class="news-card">
+                        <span class="news-date">🥇 June 2021</span>
+                        <h3 class="news-title">Gold Medal Award - M.Sc. Software Engineering</h3>
+                        <p class="news-content">
+                            Received the Gold Medal Award for achieving the highest academic performance in the M.Sc. Software Engineering program at Bahria University. This honor recognizes excellence in coursework, research, and thesis contributions to software fault prediction.
+                        </p>
+                        <span class="news-badge">🏆 Academic Excellence</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-controls">
+                <button class="carousel-btn" id="prevBtn">❮</button>
+                <div class="carousel-indicators" id="indicators"></div>
+                <button class="carousel-btn" id="nextBtn">❯</button>
+            </div>
+
+            <div style="text-align: center; margin-top: 1.5rem;">
+                <button class="autoplay-toggle" id="autoplayBtn">⏸️ Pause Auto-Scroll</button>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <h3>💡 Stay Connected</h3>
+            <p>
+                Follow my journey as I continue to push boundaries in wireless communications and AI research. More exciting updates coming soon!
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Iqra Batool. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Empowering the future of wireless communication through AI and innovation.</p>
+    </footer>
+
+    <script>
+        // Carousel functionality
+        const track = document.getElementById('carouselTrack');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const autoplayBtn = document.getElementById('autoplayBtn');
+        const indicatorsContainer = document.getElementById('indicators');
+        
+        const cards = document.querySelectorAll('.news-card');
+        const totalCards = cards.length;
+        let currentIndex = 0;
+        let autoplayInterval;
+        let isAutoplayActive = true;
+
+        // Create indicators
+        for (let i = 0; i < totalCards; i++) {
+            const indicator = document.createElement('div');
+            indicator.className = 'indicator';
+            if (i === 0) indicator.classList.add('active');
+            indicator.addEventListener('click', () => goToSlide(i));
+            indicatorsContainer.appendChild(indicator);
+        }
+
+        const indicators = document.querySelectorAll('.indicator');
+
+        function updateCarousel() {
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            
+            // Update indicators
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % totalCards;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+            updateCarousel();
+        }
+
+        function goToSlide(index) {
+            currentIndex = index;
+            updateCarousel();
+            resetAutoplay();
+        }
+
+        function startAutoplay() {
+            autoplayInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+            isAutoplayActive = true;
+            autoplayBtn.innerHTML = '⏸️ Pause Auto-Scroll';
+        }
+
+        function stopAutoplay() {
+            clearInterval(autoplayInterval);
+            isAutoplayActive = false;
+            autoplayBtn.innerHTML = '▶️ Resume Auto-Scroll';
+        }
+
+        function resetAutoplay() {
+            if (isAutoplayActive) {
+                stopAutoplay();
+                startAutoplay();
+            }
+        }
+
+        // Event listeners
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            resetAutoplay();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            resetAutoplay();
+        });
+
+        autoplayBtn.addEventListener('click', () => {
+            if (isAutoplayActive) {
+                stopAutoplay();
+            } else {
+                startAutoplay();
+            }
+        });
+
+        // Start autoplay on page load
+        startAutoplay();
+
+        // Pause autoplay when user hovers over carousel
+        const carouselContainer = document.querySelector('.news-carousel-container');
+        carouselContainer.addEventListener('mouseenter', () => {
+            if (isAutoplayActive) {
+                clearInterval(autoplayInterval);
+            }
+        });
+
+        carouselContainer.addEventListener('mouseleave', () => {
+            if (isAutoplayActive) {
+                startAutoplay();
+            }
+        });
+    </script>
+</body>
+</html>

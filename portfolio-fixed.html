@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iqra Batool - Ph.D. Researcher | 5G/6G Networks & AI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --burgundy: #8B1538;
+            --dark-burgundy: #6B0F2A;
+            --gold: #D4AF37;
+            --light-gold: #F4E4B8;
+            --cream: #FFF8E7;
+            --dark-bg: #1a1a1a;
+            --text-dark: #2c2c2c;
+            --text-light: #f5f5f5;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--cream);
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--burgundy);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 0.5rem 2rem;
+            background: var(--dark-burgundy);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: var(--gold);
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--light-gold);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .hero {
+            padding-top: 140px;
+            background: linear-gradient(135deg, var(--burgundy) 0%, var(--dark-burgundy) 100%);
+            color: var(--text-light);
+            padding-bottom: 4rem;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            text-align: center;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-image {
+            flex: 0 0 300px;
+            margin: 0 auto;
+        }
+
+        .hero-image img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 8px solid var(--gold);
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .hero-text {
+            flex: 1;
+            text-align: left;
+            min-width: 300px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            color: var(--gold);
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            color: var(--light-gold);
+            margin-bottom: 1rem;
+            font-weight: normal;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            color: var(--gold);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.3s;
+        }
+
+        .contact-links a:hover {
+            transform: translateY(-3px);
+            color: var(--light-gold);
+        }
+
+        .section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--burgundy);
+            margin-bottom: 2rem;
+            border-bottom: 3px solid var(--gold);
+            padding-bottom: 0.5rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(139, 21, 56, 0.1);
+            border-top: 4px solid var(--gold);
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            color: var(--burgundy);
+            font-weight: bold;
+        }
+
+        .stat-label {
+            color: var(--text-dark);
+            margin-top: 0.5rem;
+        }
+
+        .experience-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .experience-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(139, 21, 56, 0.1);
+            border-left: 5px solid var(--burgundy);
+            transition: all 0.3s;
+        }
+
+        .experience-card:hover {
+            box-shadow: 0 8px 25px rgba(139, 21, 56, 0.2);
+            transform: translateX(5px);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .experience-title {
+            color: var(--burgundy);
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+
+        .experience-org {
+            color: var(--gold);
+            font-size: 1.1rem;
+        }
+
+        .experience-date {
+            color: #666;
+            font-style: italic;
+        }
+
+        .experience-details {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .experience-details li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-details li:before {
+            content: "▸";
+            color: var(--gold);
+            position: absolute;
+            left: 0;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(139, 21, 56, 0.1);
+        }
+
+        .skill-category h3 {
+            color: var(--burgundy);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 0.5rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: var(--light-gold);
+            color: var(--dark-burgundy);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .publications-filter {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: white;
+            color: var(--burgundy);
+            border: 2px solid var(--burgundy);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--burgundy);
+            color: var(--gold);
+        }
+
+        .publication-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(139, 21, 56, 0.1);
+            border-left: 5px solid var(--gold);
+            transition: all 0.3s;
+        }
+
+        .publication-card:hover {
+            box-shadow: 0 8px 25px rgba(139, 21, 56, 0.2);
+        }
+
+        .publication-title {
+            color: var(--burgundy);
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-authors {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-venue {
+            color: var(--gold);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-status {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .status-published {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-accepted {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status-review {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+
+        .status-submitted {
+            background: #e2e3e5;
+            color: #383d41;
+        }
+
+        .awards-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .award-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(139, 21, 56, 0.1);
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .award-icon {
+            font-size: 3rem;
+            color: var(--gold);
+        }
+
+        .award-details h3 {
+            color: var(--burgundy);
+            margin-bottom: 0.3rem;
+        }
+
+        footer {
+            background: var(--dark-burgundy);
+            color: var(--light-gold);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        .news-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(139, 21, 56, 0.1);
+            border-left: 5px solid var(--gold);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .news-card:hover {
+            box-shadow: 0 8px 25px rgba(139, 21, 56, 0.2);
+            transform: translateX(5px);
+        }
+
+        .news-date {
+            display: inline-block;
+            background: var(--burgundy);
+            color: var(--gold);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .news-title {
+            color: var(--burgundy);
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.8rem;
+        }
+
+        .news-content {
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        .news-badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-top: 0.5rem;
+            background: var(--light-gold);
+            color: var(--dark-burgundy);
+        }
+
+        .course-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(139, 21, 56, 0.15);
+            transition: all 0.4s ease;
+            border-top: 4px solid var(--gold);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .course-card:hover::before {
+            left: 100%;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(139, 21, 56, 0.25);
+            border-top-color: var(--burgundy);
+        }
+
+        .course-code {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--burgundy), var(--dark-burgundy));
+            color: var(--gold);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 3px 10px rgba(139, 21, 56, 0.3);
+        }
+
+        .course-title {
+            color: var(--burgundy);
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-member {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(139, 21, 56, 0.15);
+            transition: all 0.4s ease;
+            border: 3px solid transparent;
+        }
+
+        .team-member:hover {
+            transform: translateY(-15px) rotate(2deg);
+            box-shadow: 0 20px 50px rgba(139, 21, 56, 0.3);
+            border-color: var(--gold);
+        }
+
+        .team-photo {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid var(--gold);
+            box-shadow: 0 8px 20px rgba(139, 21, 56, 0.3);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .team-member:hover .team-photo {
+            border-color: var(--burgundy);
+            transform: scale(1.1);
+        }
+
+        .team-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .team-role {
+            background: var(--light-gold);
+            color: var(--dark-burgundy);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header p {
+            font-size: 1.15rem;
+            color: #666;
+            max-width: 800px;
+            margin: 1rem auto 0;
+            line-height: 1.8;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, var(--burgundy) 0%, var(--dark-burgundy) 100%);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            color: white;
+            text-align: center;
+            margin: 3rem 0;
+            box-shadow: 0 10px 40px rgba(139, 21, 56, 0.4);
+        }
+
+        .highlight-box h3 {
+            color: var(--gold);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content {
+                text-align: center;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Iqra Batool</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#teaching">Teaching</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#awards">Awards</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-image">
+                <img src="iqra%20Batool.jpeg" alt="Iqra Batool" id="profileImage" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27300%27 height=%27300%27%3E%3Cdefs%3E%3ClinearGradient id=%27grad%27 x1=%270%25%27 y1=%270%25%27 x2=%27100%25%27 y2=%27100%25%27%3E%3Cstop offset=%270%25%27 style=%27stop-color:%238B1538%3Bstop-opacity:1%27 /%3E%3Cstop offset=%27100%25%27 style=%27stop-color:%236B0F2A%3Bstop-opacity:1%27 /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill=%27url(%23grad)%27 width=%27300%27 height=%27300%27/%3E%3Ccircle cx=%27150%27 cy=%27120%27 r=%2750%27 fill=%27%23D4AF37%27 opacity=%270.3%27/%3E%3Ccircle cx=%27150%27 cy=%27135%27 r=%2730%27 fill=%27%23D4AF37%27/%3E%3Cpath d=%27M 100 180 Q 150 200 200 180%27 stroke=%27%23D4AF37%27 stroke-width=%273%27 fill=%27none%27/%3E%3Ctext x=%2750%25%27 y=%2785%25%27 font-size=%2718%27 fill=%27%23F4E4B8%27 text-anchor=%27middle%27 font-family=%27Georgia%27%3EIqra Batool%3C/text%3E%3Ctext x=%2750%25%27 y=%2792%25%27 font-size=%2712%27 fill=%27%23D4AF37%27 text-anchor=%27middle%27 font-family=%27Georgia%27%3EPh.D. Candidate%3C/text%3E%3C/svg%3E'">
+            </div>
+            <div class="hero-text">
+                <h1>Iqra Batool</h1>
+                <h2>Ph.D. Candidate in Computer Science</h2>
+                <p>Advancing next-generation wireless networks through AI-driven research in 5G/6G, IoT systems, and machine learning. Published researcher with 6+ years of expertise bridging academic innovation and industry applications.</p>
+                <div class="contact-links">
+                    <a href="mailto:ibatool2@uwo.ca">📧 Email</a>
+                    <a href="tel:+14382299392">📞 Phone</a>
+                    <a href="https://www.linkedin.com/in/iqra-batool-096a19131/" target="_blank">🔗 LinkedIn</a>
+                    <a href="https://github.com/iqrabatool" target="_blank">💻 GitHub</a>
+                    <a href="https://scholar.google.ca/citations?user=2M7NFH8AAAAJ&hl=en&oi=ao" target="_blank">🎓 Google Scholar</a>                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="about">
+        <h2 class="section-title">About Me</h2>
+        
+        <div style="background: white; padding: 2.5rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(139, 21, 56, 0.1); margin-bottom: 3rem; border-left: 5px solid var(--gold);">
+            <p style="font-size: 1.15rem; line-height: 1.9; color: var(--text-dark); margin-bottom: 1.5rem;">
+                I am a passionate researcher and educator dedicated to shaping the future of wireless communication through artificial intelligence and innovation. Currently pursuing my Ph.D. at Western University, I focus on developing intelligent, adaptive solutions for next-generation 5G/6G networks that will transform how we connect, communicate, and interact in an increasingly digital world.
+            </p>
+            <p style="font-size: 1.15rem; line-height: 1.9; color: var(--text-dark); margin-bottom: 1.5rem;">
+                My research bridges the gap between theoretical advancement and practical implementation, leveraging deep reinforcement learning, quantum computing, and privacy-preserving techniques to solve real-world challenges in IoT systems, vehicular networks, and ultra-low latency applications.
+            </p>
+            <p style="font-size: 1.15rem; line-height: 1.9; color: var(--text-dark);">
+                Beyond research, I am committed to nurturing the next generation of technology leaders through teaching and mentorship, having guided 35+ students in their academic and professional journeys. My work has been recognized through multiple scholarships, publications in top-tier venues, and invitations to serve as a reviewer for premier IEEE journals.
+            </p>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">25+</div>
+                <div class="stat-label">Publications</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">8+</div>
+                <div class="stat-label">Journal Papers</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">6+</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">35+</div>
+                <div class="stat-label">Students Mentored</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">4+</div>
+                <div class="stat-label">IEEE Journals Reviewed</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">2</div>
+                <div class="stat-label">Conference Presentations</div>
+            </div>
+        </div>
+
+        <div style="margin-top: 3rem;">
+            <h3 style="color: var(--burgundy); font-size: 1.8rem; margin-bottom: 1.5rem; text-align: center;">Research Philosophy</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                <div style="background: linear-gradient(135deg, var(--burgundy) 0%, var(--dark-burgundy) 100%); padding: 2rem; border-radius: 15px; color: white; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🎯</div>
+                    <h4 style="color: var(--gold); margin-bottom: 0.5rem; font-size: 1.3rem;">Innovation</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.6;">Pushing boundaries in AI-driven network optimization and quantum computing applications</p>
+                </div>
+                <div style="background: linear-gradient(135deg, var(--burgundy) 0%, var(--dark-burgundy) 100%); padding: 2rem; border-radius: 15px; color: white; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🤝</div>
+                    <h4 style="color: var(--gold); margin-bottom: 0.5rem; font-size: 1.3rem;">Collaboration</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.6;">Working with leading researchers globally to advance wireless communication technologies</p>
+                </div>
+                <div style="background: linear-gradient(135deg, var(--burgundy) 0%, var(--dark-burgundy) 100%); padding: 2rem; border-radius: 15px; color: white; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🌍</div>
+                    <h4 style="color: var(--gold); margin-bottom: 0.5rem; font-size: 1.3rem;">Impact</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.6;">Creating solutions that address real-world challenges in IoT, smart cities, and connected systems</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="research">
+        <h2 class="section-title">Research Focus</h2>
+        <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
+            My research centers on developing intelligent, adaptive solutions for next-generation wireless communication systems. I specialize in leveraging deep reinforcement learning, quantum computing, and privacy-preserving techniques to optimize resource allocation in 5G/6G networks, with particular emphasis on IoT, vehicular networks, and ultra-low latency applications.
+        </p>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Research Areas</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">5G/6G Networks</span>
+                    <span class="skill-tag">IoT & Edge Computing</span>
+                    <span class="skill-tag">Machine Learning</span>
+                    <span class="skill-tag">Deep Reinforcement Learning</span>
+                    <span class="skill-tag">Quantum Computing</span>
+                    <span class="skill-tag">Network Security</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Programming</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">C/C++</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">MATLAB</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Frameworks & Tools</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">TensorFlow</span>
+                    <span class="skill-tag">PyTorch</span>
+                    <span class="skill-tag">NS-3</span>
+                    <span class="skill-tag">Sionna</span>
+                    <span class="skill-tag">AWS</span>
+                    <span class="skill-tag">LaTeX</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Networking</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">5G/6G Protocols</span>
+                    <span class="skill-tag">VPN</span>
+                    <span class="skill-tag">DNS</span>
+                    <span class="skill-tag">IoT Architectures</span>
+                    <span class="skill-tag">Wireshark</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="publications">
+        <h2 class="section-title">Publications</h2>
+        <div class="publications-filter">
+            <button class="filter-btn active" onclick="filterPublications('all')">All</button>
+            <button class="filter-btn" onclick="filterPublications('journal')">Journal Papers</button>
+            <button class="filter-btn" onclick="filterPublications('conference')">Conference Papers</button>
+            <button class="filter-btn" onclick="filterPublications('book')">Book Chapters</button>
+        </div>
+        <div id="publicationsContainer"></div>
+    </section>
+
+    <section class="section" id="experience">
+        <h2 class="section-title">Experience</h2>
+        
+        <h3 style="color: var(--burgundy); font-size: 1.8rem; margin-top: 2rem; margin-bottom: 1rem;">Academic Experience</h3>
+        <div class="experience-grid">
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Lecturer & Ph.D. Researcher</div>
+                        <div class="experience-org">Western University, London, ON</div>
+                    </div>
+                    <div class="experience-date">Dec 2023 – Present</div>
+                </div>
+                <ul class="experience-details">
+                    <li>Leading research in 5G & 6G wireless communication systems</li>
+                    <li>Designed and taught courses: Java and Python Programming, Software Engineering, Web Development</li>
+                    <li>Mentored 15+ graduate students on projects in web development and AI-driven network management</li>
+                    <li>Published 4 papers in Elsevier and IEEE journals (peer-reviewed)</li>
+                </ul>
+            </div>
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Lecturer</div>
+                        <div class="experience-org">Fatima Jinnah Women University, Pakistan</div>
+                    </div>
+                    <div class="experience-date">Mar 2019 – Sep 2022</div>
+                </div>
+                <ul class="experience-details">
+                    <li>Revamped curriculum for Software Engineering programs, boosting student placements by 35%</li>
+                    <li>Supervised 20+ projects on IoT applications and fault-tolerant systems</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3 style="color: var(--burgundy); font-size: 1.8rem; margin-top: 3rem; margin-bottom: 1rem;">Industry Experience</h3>
+        <div class="experience-grid">
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Software Developer</div>
+                        <div class="experience-org">Free Balance, Pakistan</div>
+                    </div>
+                    <div class="experience-date">Mar 2017 – Mar 2019</div>
+                </div>
+                <ul class="experience-details">
+                    <li>Built scalable web applications using ASP.NET and AngularJS</li>
+                    <li>Improved server response time by 40%</li>
+                    <li>Optimized SQL databases for enterprise clients, enhancing query efficiency by 30%</li>
+                </ul>
+            </div>
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Web Developer</div>
+                        <div class="experience-org">Army Welfare Trust, Pakistan</div>
+                    </div>
+                    <div class="experience-date">Feb 2015 – Jan 2017</div>
+                </div>
+                <ul class="experience-details">
+                    <li>Developed responsive websites using HTML5/CSS3/JavaScript</li>
+                    <li>Increased user engagement by 25%</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="team">
+        <div class="section-header">
+            <h2 class="section-title">Research Team & Collaborators</h2>
+            <p>Building the future of wireless networks through global collaboration with leading researchers and institutions worldwide</p>
+        </div>
+
+        <h3 style="color: var(--burgundy); font-size: 2rem; margin-bottom: 2rem; text-align: center;">
+            🌟 Principal Investigator
+        </h3>
+        
+        <div style="max-width: 400px; margin: 0 auto 4rem;">
+            <div class="team-member">
+                <div class="team-photo">
+                    <img src="iqra%20Batool.jpeg" alt="Iqra Batool" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27180%27 height=%27180%27%3E%3Cdefs%3E%3ClinearGradient id=%27grad2%27 x1=%270%25%27 y1=%270%25%27 x2=%27100%25%27 y2=%27100%25%27%3E%3Cstop offset=%270%25%27 style=%27stop-color:%238B1538%3Bstop-opacity:1%27 /%3E%3Cstop offset=%27100%25%27 style=%27stop-color:%236B0F2A%3Bstop-opacity:1%27 /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill=%27url(%23grad2)%27 width=%27180%27 height=%27180%27/%3E%3Ccircle cx=%2790%27 cy=%2770%27 r=%2730%27 fill=%27%23D4AF37%27 opacity=%270.3%27/%3E%3Ccircle cx=%2790%27 cy=%2780%27 r=%2720%27 fill=%27%23D4AF37%27/%3E%3Cpath d=%27M 60 110 Q 90 125 120 110%27 stroke=%27%23D4AF37%27 stroke-width=%272%27 fill=%27none%27/%3E%3Ctext x=%2750%25%27 y=%2785%25%27 font-size=%2716%27 fill=%27%23F4E4B8%27 text-anchor=%27middle%27%3EIqra Batool%3C/text%3E%3C/svg%3E'">
+                </div>
+                <h3 style="color: var(--burgundy); margin-bottom: 0.5rem; font-size: 1.5rem;">Iqra Batool</h3>
+                <p style="color: var(--gold); font-weight: bold; font-size: 1.1rem;">Ph.D. Candidate</p>
+                <p style="color: #666; margin-top: 1rem;">Western University, London, ON</p>
+                <span class="team-role">Lead Researcher</span>
+            </div>
+        </div>
+
+        <h3 style="color: var(--burgundy); font-size: 2rem; margin-bottom: 2rem; text-align: center;">
+            🤝 Supervisors & Collaborators
+        </h3>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; margin-bottom: 3rem;">
+            <div class="team-member">
+                <div class="team-photo">
+                    <img src="Zubair.jpeg" alt="Dr. Zubair Md Fadlullah" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27180%27 height=%27180%27%3E%3Crect fill=%27%238B1538%27 width=%27180%27 height=%27180%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 font-size=%2770%27 fill=%27%23D4AF37%27 text-anchor=%27middle%27 dy=%27.3em%27%3EZF%3C/text%3E%3C/svg%3E'">
+                </div>
+                <h3 style="color: var(--burgundy); margin-bottom: 0.5rem;">Dr. Zubair Md Fadlullah</h3>
+                <p style="color: var(--gold); font-weight: bold;">Western University 🇨🇦</p>
+                <p style="color: #666; margin-top: 1rem; font-size: 0.95rem;">AI-native networks, quantum computing</p>
+                <span class="team-role">Ph.D. Supervisor</span>
+            </div>
+            
+            <div class="team-member">
+                <div class="team-photo">
+                    <img src="Fouda.jpg" alt="Dr. Mostafa M. Fouda" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27180%27 height=%27180%27%3E%3Crect fill=%27%238B1538%27 width=%27180%27 height=%27180%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 font-size=%2770%27 fill=%27%23D4AF37%27 text-anchor=%27middle%27 dy=%27.3em%27%3EMF%3C/text%3E%3C/svg%3E'">
+                </div>
+                <h3 style="color: var(--burgundy); margin-bottom: 0.5rem;">Dr. Mostafa M. Fouda</h3>
+                <p style="color: var(--gold); font-weight: bold;">Idaho State University 🇺🇸</p>
+                <p style="color: #666; margin-top: 1rem; font-size: 0.95rem;">6G networks, IoT, deep RL</p>
+                <span class="team-role">Ph.D. Supervisor</span>
+            </div>
+            
+            <div class="team-member">
+                <div class="team-photo">
+                    <img src="Ismail.jpeg" alt="Dr. Muhammad Ismail" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27180%27 height=%27180%27%3E%3Crect fill=%27%238B1538%27 width=%27180%27 height=%27180%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 font-size=%2770%27 fill=%27%23D4AF37%27 text-anchor=%27middle%27 dy=%27.3em%27%3EMI%3C/text%3E%3C/svg%3E'">
+                </div>
+                <h3 style="color: var(--burgundy); margin-bottom: 0.5rem;">Dr. Muhammad Ismail</h3>
+                <p style="color: var(--gold); font-weight: bold;">Tennessee Tech University 🇺🇸</p>
+                <p style="color: #666; margin-top: 1rem; font-size: 0.95rem;">Vehicular networks, spectrum allocation</p>
+                <span class="team-role">Collaborator</span>
+            </div>
+            
+            <div class="team-member">
+                <div class="team-photo">
+                    <img src="Nei Kato.jpg" alt="Prof. Nei Kato" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27180%27 height=%27180%27%3E%3Crect fill=%27%238B1538%27 width=%27180%27 height=%27180%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 font-size=%2770%27 fill=%27%23D4AF37%27 text-anchor=%27middle%27 dy=%27.3em%27%3ENK%3C/text%3E%3C/svg%3E'">
+                </div>
+                <h3 style="color: var(--burgundy); margin-bottom: 0.5rem;">Prof. Nei Kato</h3>
+                <p style="color: var(--gold); font-weight: bold;">Tohoku University 🇯🇵</p>
+                <p style="color: #666; margin-top: 1rem; font-size: 0.95rem;">IEEE Fellow, 5G/6G network intelligence</p>
+                <span class="team-role">International Collaborator</span>
+            </div>
+            
+            <div class="team-member">
+                <div class="team-photo">
+                    <img src="E1D8E634-7251-487A-84CA-B100EFCC7E89.jpeg" alt="Dr. Khaled Rabie" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27180%27 height=%27180%27%3E%3Crect fill=%27%238B1538%27 width=%27180%27 height=%27180%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 font-size=%2770%27 fill=%27%23D4AF37%27 text-anchor=%27middle%27 dy=%27.3em%27%3EKR%3C/text%3E%3C/svg%3E'">
+                </div>
+                <h3 style="color: var(--burgundy); margin-bottom: 0.5rem;">Dr. Khaled Rabie</h3>
+                <p style="color: var(--gold); font-weight: bold;">King Fahad University for Petroleum and Minerals (KFUPM)🇸🇦</p>
+                <p style="color: #666; margin-top: 1rem; font-size: 0.95rem;">Wireless communications, IoT systems</p>
+                <span class="team-role">Collaborator</span>
+            </div>
+            
+            <div class="team-member">
+                <div class="team-photo">
+                    <img src="ibrahim.jpeg" alt="Dr. Mohamed I. Ibrahem" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27180%27 height=%27180%27%3E%3Crect fill=%27%238B1538%27 width=%27180%27 height=%27180%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 font-size=%2765%27 fill=%27%23D4AF37%27 text-anchor=%27middle%27 dy=%27.3em%27%3EMII%3C/text%3E%3C/svg%3E'">
+                </div>
+                <h3 style="color: var(--burgundy); margin-bottom: 0.5rem;">Dr. Mohamed I. Ibrahem</h3>
+                <p style="color: var(--gold); font-weight: bold;">Uni of Central Florida 🇺🇸</p>
+                <p style="color: #666; margin-top: 1rem; font-size: 0.95rem;">Resource allocation, network optimization</p>
+                <span class="team-role">Collaborator</span>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <h3>🤝 Open to Collaboration</h3>
+            <p style="font-size: 1.1rem; line-height: 1.8; max-width: 800px; margin: 0 auto;">
+                I am always excited to explore new research opportunities and collaborations. If you're interested in working together on 5G/6G networks, AI-driven optimization, quantum computing applications, or related areas, please reach out!
+            </p>
+        </div>
+    </section>
+
+    <section class="section" id="teaching">
+        <div class="section-header">
+            <h2 class="section-title">Teaching & Courses</h2>
+            <p>Passionate about education and mentoring the next generation of technology leaders through innovative teaching methods and hands-on learning experiences</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+            <div class="course-card">
+                <span class="course-code">CS 1027</span>
+                <h3 class="course-title">Java Programming</h3>
+                <p style="color: #666; line-height: 1.7; margin-top: 1rem;">
+                    Introduction to object-oriented programming concepts, data structures, and algorithm development using Java. Focus on practical problem-solving and software design principles.
+                </p>
+                <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 2px solid var(--light-gold);">
+                    <span style="color: var(--burgundy); font-weight: bold;">📚 Topics:</span>
+                    <span style="color: #666; font-size: 0.9rem;"> OOP, Data Structures, Algorithms</span>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <span class="course-code">CS 1037</span>
+                <h3 class="course-title">Computer Science Fundamentals</h3>
+                <p style="color: #666; line-height: 1.7; margin-top: 1rem;">
+                    Core principles of computer science including logic, problem-solving, computational thinking, and foundational programming concepts for aspiring computer scientists.
+                </p>
+                <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 2px solid var(--light-gold);">
+                    <span style="color: var(--burgundy); font-weight: bold;">📚 Topics:</span>
+                    <span style="color: #666; font-size: 0.9rem;"> Logic, Problem-solving, Programming</span>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <span class="course-code">CS 3550</span>
+                <h3 class="course-title">Computer Organization</h3>
+                <p style="color: #666; line-height: 1.7; margin-top: 1rem;">
+                    Understanding computer architecture, processor design, memory hierarchy, and system-level programming. Bridges hardware and software concepts.
+                </p>
+                <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 2px solid var(--light-gold);">
+                    <span style="color: var(--burgundy); font-weight: bold;">📚 Topics:</span>
+                    <span style="color: #666; font-size: 0.9rem;"> Architecture, Processors, Memory Systems</span>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <span class="course-code">CSC-711</span>
+                <h3 class="course-title">Advanced Artificial Intelligence</h3>
+                <p style="color: #666; line-height: 1.7; margin-top: 1rem;">
+                    Graduate-level exploration of AI techniques including machine learning, deep learning, neural networks, and intelligent agents. Focus on cutting-edge research and applications.
+                </p>
+                <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 2px solid var(--light-gold);">
+                    <span style="color: var(--burgundy); font-weight: bold;">📚 Topics:</span>
+                    <span style="color: #666; font-size: 0.9rem;"> ML, Deep Learning, Neural Networks</span>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <span class="course-code">SCS 211</span>
+                <h3 class="course-title">Data Structures and Algorithms</h3>
+                <p style="color: #666; line-height: 1.7; margin-top: 1rem;">
+                    Comprehensive study of fundamental data structures and algorithmic techniques. Emphasis on complexity analysis, optimization, and practical implementation.
+                </p>
+                <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 2px solid var(--light-gold);">
+                    <span style="color: var(--burgundy); font-weight: bold;">📚 Topics:</span>
+                    <span style="color: #666; font-size: 0.9rem;"> Trees, Graphs, Sorting, Searching</span>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <span class="course-code">CSC-222</span>
+                <h3 class="course-title">Data Communication and Networking</h3>
+                <p style="color: #666; line-height: 1.7; margin-top: 1rem;">
+                    Network protocols, architectures, and communication systems. Covers OSI model, TCP/IP, routing, and modern networking technologies.
+                </p>
+                <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 2px solid var(--light-gold);">
+                    <span style="color: var(--burgundy); font-weight: bold;">📚 Topics:</span>
+                    <span style="color: #666; font-size: 0.9rem;"> Protocols, TCP/IP, Network Security</span>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <span class="course-code">EET-455</span>
+                <h3 class="course-title">Wireless Communications</h3>
+                <p style="color: #666; line-height: 1.7; margin-top: 1rem;">
+                    Advanced wireless communication systems, modulation techniques, channel modeling, and 5G/6G technologies. Integration of theory with practical applications.
+                </p>
+                <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 2px solid var(--light-gold);">
+                    <span style="color: var(--burgundy); font-weight: bold;">📚 Topics:</span>
+                    <span style="color: #666; font-size: 0.9rem;"> 5G/6G, Modulation, Channel Modeling</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="highlight-box" style="margin-top: 3rem;">
+            <h3>🎓 Teaching Philosophy</h3>
+            <p style="font-size: 1.1rem; line-height: 1.8; max-width: 900px; margin: 1.5rem auto 0;">
+                I believe in bridging theory and practice, fostering critical thinking, and creating inclusive learning environments where students feel empowered to explore, innovate, and excel. Through mentorship of 35+ students and curriculum development, I strive to prepare the next generation for the challenges and opportunities in technology.
+            </p>
+        </div>
+    </section>
+
+    <section class="section" id="awards">
+        <h2 class="section-title">Awards & Recognition</h2>
+        <h3 style="color: var(--burgundy); font-size: 1.8rem; margin-top: 2rem; margin-bottom: 1.5rem; text-align: center;">🏆 Honors & Recognition</h3>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+            <div class="award-card" style="background: linear-gradient(135deg, white, var(--cream)); border-left: 5px solid var(--burgundy);">
+                <div class="award-icon">🎓</div>
+                <div class="award-details">
+                    <h3>Full Ph.D. Scholarship</h3>
+                    <p style="font-weight: bold; color: var(--gold);">Western University, Canada</p>
+                    <p style="color: #666; font-size: 0.9rem; margin-top: 0.5rem;">Full funding for doctoral research in 5G/6G networks and AI (2023-2026)</p>
+                </div>
+            </div>
+            
+            <div class="award-card" style="background: linear-gradient(135deg, white, var(--cream)); border-left: 5px solid var(--gold);">
+                <div class="award-icon">🥇</div>
+                <div class="award-details">
+                    <h3>Gold Medal Award</h3>
+                    <p style="font-weight: bold; color: var(--burgundy);">M.Sc. Software Engineering</p>
+                    <p style="color: #666; font-size: 0.9rem; margin-top: 0.5rem;">Highest academic achievement in Master's program, Bahria University</p>
+                </div>
+            </div>
+            
+            <div class="award-card" style="background: linear-gradient(135deg, white, var(--cream)); border-left: 5px solid var(--burgundy);">
+                <div class="award-icon">🌟</div>
+                <div class="award-details">
+                    <h3>High Achiever Scholarship</h3>
+                    <p style="font-weight: bold; color: var(--gold);">M.Sc. Program</p>
+                    <p style="color: #666; font-size: 0.9rem; margin-top: 0.5rem;">Awarded for exceptional academic performance and research excellence</p>
+                </div>
+            </div>
+            
+            <div class="award-card" style="background: linear-gradient(135deg, white, var(--cream)); border-left: 5px solid var(--gold);">
+                <div class="award-icon">⭐</div>
+                <div class="award-details">
+                    <h3>Merit-Based Scholarship</h3>
+                    <p style="font-weight: bold; color: var(--burgundy);">B.Sc. Computer Science</p>
+                    <p style="color: #666; font-size: 0.9rem; margin-top: 0.5rem;">Undergraduate merit scholarship for outstanding academic achievement</p>
+                </div>
+            </div>
+        </div>
+
+        <h3 style="color: var(--burgundy); font-size: 1.8rem; margin-top: 3rem; margin-bottom: 1.5rem; text-align: center;">Professional Service & Recognition</h3>
+        
+        <div style="background: white; padding: 2.5rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(139, 21, 56, 0.1); margin-bottom: 2rem;">
+            <h3 style="color: var(--burgundy); font-size: 1.6rem; margin-bottom: 1.5rem; text-align: center;">
+                <span style="font-size: 2rem; margin-right: 0.5rem;">📝</span>
+                Peer Reviewer for Leading IEEE Journals
+            </h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                <div style="background: var(--light-gold); padding: 1.5rem; border-radius: 10px; border-left: 4px solid var(--burgundy); transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                    <h4 style="color: var(--dark-burgundy); font-size: 1.1rem; margin-bottom: 0.5rem;">IEEE Internet of Things Journal</h4>
+                    <p style="color: #666; font-size: 0.9rem;">Impact Factor: 10.6 | Top-tier IoT research</p>
+                </div>
+                <div style="background: var(--light-gold); padding: 1.5rem; border-radius: 10px; border-left: 4px solid var(--burgundy); transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                    <h4 style="color: var(--dark-burgundy); font-size: 1.1rem; margin-bottom: 0.5rem;">IEEE Transactions on Wireless Communications</h4>
+                    <p style="color: #666; font-size: 0.9rem;">Impact Factor: 10.4 | Premier wireless communications venue</p>
+                </div>
+                <div style="background: var(--light-gold); padding: 1.5rem; border-radius: 10px; border-left: 4px solid var(--burgundy); transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                    <h4 style="color: var(--dark-burgundy); font-size: 1.1rem; margin-bottom: 0.5rem;">IEEE Transactions on Vehicular Technology</h4>
+                    <p style="color: #666; font-size: 0.9rem;">Impact Factor: 6.8 | Leading vehicular technology journal</p>
+                </div>
+                <div style="background: var(--light-gold); padding: 1.5rem; border-radius: 10px; border-left: 4px solid var(--burgundy); transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                    <h4 style="color: var(--dark-burgundy); font-size: 1.1rem; margin-bottom: 0.5rem;">IEEE Network Magazine</h4>
+                    <p style="color: #666; font-size: 0.9rem;">Impact Factor: 9.3 | Premier networking magazine</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+            <div class="award-card">
+                <div class="award-icon">🎤</div>
+                <div class="award-details">
+                    <h3>Conference Presenter</h3>
+                    <p>IEEE SmartNet (2024) - USA</p>
+                    <p style="color: #666; font-size: 0.9rem; margin-top: 0.3rem;">Presented research on deep learning-based throughput prediction</p>
+                </div>
+            </div>
+            <div class="award-card">
+                <div class="award-icon">🎤</div>
+                <div class="award-details">
+                    <h3>Conference Presenter</h3>
+                    <p>IEEE ICC (2025) - Canada</p>
+                    <p style="color: #666; font-size: 0.9rem; margin-top: 0.3rem;">Presenting adaptive resource allocation research</p>
+                </div>
+            </div>
+            <div class="award-card">
+                <div class="award-icon">👩‍💻</div>
+                <div class="award-details">
+                    <h3>Professional Memberships</h3>
+                    <p>IEEE, Women in Engineering (WIE)</p>
+                    <p style="color: #666; font-size: 0.9rem; margin-top: 0.3rem;">Active member contributing to technical communities</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="education">
+        <h2 class="section-title">Education</h2>
+        <div class="experience-grid">
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Ph.D. in Computer Science</div>
+                        <div class="experience-org">Western University, London, ON</div>
+                    </div>
+                    <div class="experience-date">Expected 2026</div>
+                </div>
+                <p style="margin-top: 1rem;"><strong>Thesis:</strong> AI Driven Resource Allocation in Next Generation Networks</p>
+            </div>
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">M.Sc. in Software Engineering</div>
+                        <div class="experience-org">Bahria University, Islamabad</div>
+                    </div>
+                    <div class="experience-date">2021</div>
+                </div>
+                <p style="margin-top: 1rem;"><strong>Thesis:</strong> Software Fault Prediction Using Machine Learning & Deep Learning Models</p>
+            </div>
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">B.Sc. in Computer Science</div>
+                        <div class="experience-org">University of Azad Jammu and Kashmir</div>
+                    </div>
+                    <div class="experience-date">2014</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div style="background: white; padding: 3rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(139, 21, 56, 0.1); text-align: center;">
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Interested in collaboration, research opportunities, or discussing 5G/6G innovations? I'd love to connect!</p>
+            <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; font-size: 1.1rem;">
+                <div>📧 <a href="mailto:ibatool2@uwo.ca" style="color: var(--burgundy);">ibatool2@uwo.ca</a></div>
+                <div>📞 <a href="tel:+000000000" style="color: var(--burgundy);">+1 000000</a></div>
+                <div>📍 London, Ontario, Canada</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Iqra Batool. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Empowering the future of wireless communication through AI and innovation.</p>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Publications data
+        const publications = {
+            journal: [
+                {
+                    title: "Joint Optimization of IRS and THz Resource Allocation in 6G IoT Networks: An Adaptive Online MADDPG Approach",
+                    authors: "Iqra Batool, Mostafa M. Fouda, Muhammad Ismail, Mohamed I. Ibrahem, Khaled Rabie, Shikhar Verma, Zubair Md Fadlullah",
+                    venue: "IEEE Internet of Things Journal (IEEE IoTJ)",
+                    status: "published"
+                },
+                {
+                    title: "AMADRL: Privacy-Aware Attention-Based Multi-Agent Deep Reinforcement Learning for Optimizing Spectral Allocation in 6G Vehicular Networks",
+                    authors: "Iqra Batool, Mostafa Fouda, Muhammad Ismail, Khaled Rabie, Shikhar Verma, Zubair Fadlullah",
+                    venue: "IEEE Internet of Things Journal (IEEE IoTJ)",
+                    status: "accepted"
+                },
+                {
+                    title: "Quantum-Enhanced Massive MIMO Beamforming for 6G IoT Networks: A QAOA-Based Optimization Framework",
+                    authors: "Iqra Batool, Mostafa Fouda, Muhammad Ismail, Mohamed Ibrahem, Zubair Md Fadlullah, Nei Kato",
+                    venue: "IEEE Open Journal of the Communications Society (OJ-COMS)",
+                    status: "accepted"
+                },
+                {
+                    title: "AI-Native Predictive Scheduling for Computing Power Networks: A Multi-Scale Learning Framework for Ultra-Low Latency 6G Applications",
+                    authors: "Iqra Batool, Mostafa Fouda, Zubair Fadlullah",
+                    venue: "IEEE Transactions on Network Science and Engineering",
+                    status: "accepted"
+                },
+                {
+                    title: "Privacy-Preserving Federated Meta-Learning for Cell-Free Massive MIMO: Instant Adaptation with Distributed Intelligence",
+                    authors: "Iqra Batool, Mostafa Fouda, Muhammad Ibrahim, Zubair Fadlullah",
+                    venue: "IEEE Internet of Things Journal (IEEE IoTJ)",
+                    status: "review"
+                },
+                {
+                    title: "H-MARC: Hierarchical Mobile Adaptive Relay Control for Ultra-Reliable mmWave Communications in 6G Networks",
+                    authors: "Iqra Batool, Mostafa Fouda, Zubair Fadlullah",
+                    venue: "IEEE Internet of Things Journal (IEEE IoTJ)",
+                    status: "review"
+                },
+                {
+                    title: "Privacy-Embedded Spectrum Coordination in 6G V2X Networks: An Attention-Driven Multi-Agent Learning Approach",
+                    authors: "Iqra Batool, Mostafa Fouda, Muhammad Ismail, Zubair Fadlullah, Nei Kato",
+                    venue: "IEEE Network Magazine",
+                    status: "review"
+                },
+                {
+                    title: "QUINOA: Quantum-Unified Intelligent Network Orchestration and Automation for 6G Heterogeneous Networks",
+                    authors: "Iqra Batool, Mostafa Fouda, Muhammad Ismail, Zubair Fadlullah",
+                    venue: "IEEE Open Journal of the Communications Society (OJ-COMS)",
+                    status: "review"
+                },
+                {
+                    title: "Real-time health monitoring using 5G networks: deep learning–based architecture for remote patient care",
+                    authors: "Iqra Batool",
+                    venue: "JMIRx Med",
+                    status: "published"
+                },
+                {
+                    title: "Software fault prediction using data mining, machine learning and deep learning techniques: A systematic literature review",
+                    authors: "Iqra Batool, Tamim Ahmad Khan",
+                    venue: " Elsevier Journal of Computers and Electrical Engineering",
+                    status: "published"
+                },
+                {
+                    title: "Software fault prediction using deep learning techniques",
+                    authors: "Iqra Batool, Tamim Ahmad Khan",
+                    venue: " Springer Software Quality Journal",
+                    status: "published"
+                }
+            ],
+            conference: [
+                {
+                    title: "Adaptive Resource Allocation in Emerging High-mobility Networks Using Hybrid Deep Learning Models",
+                    authors: "Iqra Batool et al.",
+                    venue: "IEEE International Conference On Communications (ICC)",
+                    status: "published"
+                },
+                {
+                    title: "EXAD: Framework for Designing Explanations in Adaptive User Interfaces",
+                    authors: "Iqra Batool et al.",
+                    venue: "International Congress on Human Computer Interaction, Optimization and Robotic Applications (ICHORA)",
+                    status: "published"
+                },
+                {
+                    title: "Enhanced Environmental Awareness and Security for Smart Devices using WiFi-Sensing",
+                    authors: "Iqra Batool et al.",
+                    venue: "International Congress on Human Computer Interaction, Optimization and Robotic Applications (ICHORA)",
+                    status: "published"
+                },
+                {
+                    title: "Deep Learning-Based Throughput Prediction in 5G Cellular Networks",
+                    authors: "Iqra Batool et al.",
+                    venue: "International Conference of Smart Applications, Communication and Networking (SmartNets)",
+                    status: "published"
+                },
+                {
+                    title: "Combating Neural Network Adversaries in Autonomous Vehicles: a 6G-Ready Defense Framework",
+                    authors: "Iqra Batool et al.",
+                    venue: "IEEE International Conference on Wireless Networks and Mobile Communications (WINCOM)",
+                    status: "accepted"
+                },
+                {
+                    title: "PFANS: an Intelligent 6G Framework for Dynamic Autonomous Vehicle Learning",
+                    authors: "Iqra Batool et al.",
+                    venue: "IEEE International Conference on Wireless Networks and Mobile Communications (WINCOM)",
+                    status: "accepted"
+                },
+                {
+                    title: "Privacy-Preserving Energy Forecasting in 5G+ Smart Grids Using PSI-Constrained LSTM Networks",
+                    authors: "Iqra Batool et al.",
+                    venue: "IEEE Virtual Conference on Communications (IEEE VCC)",
+                    status: "accepted"
+                },
+                {
+                    title: "DRL-Based NFV Orchestration for Ultra-Low Latency Edge Applications",
+                    authors: "Iqra Batool et al.",
+                    venue: "IEEE Virtual Conference on Communications (IEEE VCC)",
+                    status: "accepted"
+                },
+                {
+                    title: "MAGHE: A Predictive Mobility-Aware Framework for VNF Embedding in B5G Networks",
+                    authors: "Iqra Batool et al.",
+                    venue: "IEEE Virtual Conference on Communications (IEEE VCC)",
+                    status: "accepted"
+                },
+                {
+                    title: "Hybrid Trajectory Prediction for Robust THz Beam Alignment in Mobile Networks",
+                    authors: "Iqra Batool et al.",
+                    venue: "IEEE Global Communications Conference (GLOBECOM)",
+                    status: "accepted"
+                },
+                {
+                    title: "Adaptive Resource Allocation for 6G Network Slicing via Hybrid CNN-LSTM Architecture",
+                    authors: "Iqra Batool et al.",
+                    venue: "IEEE Vehicular Technology Conference (VTC)",
+                    status: "accepted"
+                },
+                {
+                    title: "Privacy-Utility Trade-offs in Federated Learning for 6G Networks: A Systematic Evaluation of Software-based Privacy Mechanisms",
+                    authors: "Iqra Batool et al.",
+                    venue: "IEEE International Conference on Scalable Computing and Communications (ScalCom)",
+                    status: "accepted"
+                },
+                {
+                    title: "Securing Encrypted 6G Traffic: An Edge-Optimized AI Framework for Attack Detection",
+                    authors: "Iqra Batool et al.",
+                    venue: "IEEE International Conference on Scalable Computing and Communications (ScalCom)",
+                    status: "accepted"
+                },
+                {
+                    title: "Energy-Efficient Dynamic Spectrum Allocation for Massive THz IoT Networks Using Quantum Approximate Optimization Algorithm",
+                    authors: "Iqra Batool et al.",
+                    venue: "IEEE International Conference On Communications (ICC)",
+                    status: "submitted"
+                },
+                {
+                    title: "Federated Meta-Learning for Ultra-Fast Resource Allocation in Dense Cell-Free Massive MIMO 6G Networks",
+                    authors: "Iqra Batool et al.",
+                    venue: "IEEE International Conference On Communications (ICC)",
+                    status: "submitted"
+                }
+            ],
+            book: [
+                {
+                    title: "Intelligent Resource Allocation for 6G-Enabled IoT Sensing Networks in Smart Cities",
+                    authors: "Iqra Batool et al.",
+                    venue: "IET International Book Series on Sensors",
+                    status: "submitted"
+                },
+                {
+                    title: "Trustworthy Resource Allocation in AI-Driven 6G Sensing Networks",
+                    authors: "Iqra Batool et al.",
+                    venue: "IET International Book Series on Sensors",
+                    status: "submitted"
+                }
+            ]
+        };
+
+        let currentFilter = 'all';
+
+        function renderPublications(filter) {
+            const container = document.getElementById('publicationsContainer');
+            container.innerHTML = '';
+            
+            let publicationsToShow = [];
+            
+            if (filter === 'all') {
+                publicationsToShow = [
+                    ...publications.journal.map(p => ({...p, type: 'journal'})),
+                    ...publications.conference.map(p => ({...p, type: 'conference'})),
+                    ...publications.book.map(p => ({...p, type: 'book'}))
+                ];
+            } else if (filter === 'journal') {
+                publicationsToShow = publications.journal.map(p => ({...p, type: 'journal'}));
+            } else if (filter === 'conference') {
+                publicationsToShow = publications.conference.map(p => ({...p, type: 'conference'}));
+            } else if (filter === 'book') {
+                publicationsToShow = publications.book.map(p => ({...p, type: 'book'}));
+            }
+
+            publicationsToShow.forEach((pub, index) => {
+                const statusClass = 
+                    pub.status === 'published' ? 'status-published' :
+                    pub.status === 'accepted' ? 'status-accepted' :
+                    pub.status === 'review' ? 'status-review' :
+                    'status-submitted';
+                
+                const statusText = 
+                    pub.status === 'published' ? 'Published' :
+                    pub.status === 'accepted' ? 'Accepted' :
+                    pub.status === 'review' ? 'Under Review' :
+                    'Submitted';
+
+                const typeLabel = pub.type === 'journal' ? '📄 Journal' : pub.type === 'conference' ? '🎤 Conference' : '📚 Book Chapter';
+
+                const card = document.createElement('div');
+                card.className = 'publication-card';
+                card.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem; flex-wrap: wrap; gap: 1rem;">
+                        <div style="color: #666; font-size: 0.9rem;">${typeLabel}</div>
+                        <span class="publication-status ${statusClass}">${statusText}</span>
+                    </div>
+                    <div class="publication-title">${pub.title}</div>
+                    <div class="publication-authors">${pub.authors}</div>
+                    <div class="publication-venue">${pub.venue}</div>
+                `;
+                container.appendChild(card);
+            });
+
+            if (publicationsToShow.length === 0) {
+                container.innerHTML = '<p style="text-align: center; color: #666; padding: 2rem;">No publications found in this category.</p>';
+            }
+        }
+
+        function filterPublications(filter) {
+            currentFilter = filter;
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            renderPublications(filter);
+        }
+
+        // Initial render
+        renderPublications('all');
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
