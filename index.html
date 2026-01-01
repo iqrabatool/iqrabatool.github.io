@@ -60,6 +60,17 @@
             text-decoration: none;
         }
 
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--gold);
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1001;
+        }
+
         .nav-links {
             display: flex;
             gap: 2rem;
@@ -71,6 +82,10 @@
             text-decoration: none;
             transition: all 0.3s;
             font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
         }
 
         .hero {
@@ -149,6 +164,8 @@
             align-items: center;
             gap: 0.5rem;
             transition: transform 0.3s;
+            padding: 0.5rem;
+            min-height: 44px;
         }
 
         .contact-links a:hover {
@@ -314,6 +331,7 @@
             cursor: pointer;
             transition: all 0.3s;
             font-size: 1rem;
+            min-height: 44px;
         }
 
         .filter-btn:hover, .filter-btn.active {
@@ -595,24 +613,271 @@
             margin-bottom: 1rem;
         }
 
+        /* ============================================
+           MOBILE RESPONSIVE STYLES
+           ============================================ */
+
         @media (max-width: 768px) {
+            /* Navigation */
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                background: var(--dark-burgundy);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                transition: left 0.3s ease;
+                box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+                max-height: calc(100vh - 70px);
+                overflow-y: auto;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .nav-links a {
+                display: block;
+                padding: 1rem;
+                font-size: 1.1rem;
+            }
+
+            .navbar {
+                padding: 0.8rem 1rem;
+            }
+
+            .navbar.scrolled {
+                padding: 0.5rem 1rem;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            /* Hero section */
+            .hero {
+                padding-top: 100px;
+                padding-bottom: 2rem;
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
             .hero h1 {
                 font-size: 2rem;
             }
-
+            
+            .hero h2 {
+                font-size: 1.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
             .hero-content {
                 text-align: center;
+                gap: 2rem;
             }
-
+            
             .hero-text {
                 text-align: center;
             }
+            
+            .hero-image {
+                flex: 0 0 200px;
+            }
+            
+            .hero-image img {
+                width: 200px;
+                height: 200px;
+                border: 5px solid var(--gold);
+            }
+            
+            /* Contact links */
+            .contact-links {
+                justify-content: center;
+                gap: 1rem;
+            }
+            
+            .contact-links a {
+                font-size: 0.9rem;
+            }
+            
+            /* Sections */
+            .section {
+                margin: 2rem auto;
+                padding: 0 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            /* Stats grid */
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            .stat-card {
+                padding: 1.5rem 1rem;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
 
-            .nav-links {
-                display: none;
+            .stat-label {
+                font-size: 0.9rem;
+            }
+            
+            /* Experience cards */
+            .experience-card,
+            .publication-card,
+            .news-card {
+                padding: 1.5rem;
+            }
+            
+            .experience-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .experience-title {
+                font-size: 1.2rem;
+            }
+
+            .experience-org {
+                font-size: 1rem;
+            }
+            
+            /* Skills grid */
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            /* Team members */
+            .team-photo {
+                width: 150px;
+                height: 150px;
+            }
+
+            .team-member {
+                padding: 1.5rem;
+            }
+
+            .team-member:hover {
+                transform: translateY(-5px);
+            }
+            
+            /* Course cards */
+            .course-card {
+                padding: 1.5rem;
+            }
+
+            .course-card:hover {
+                transform: translateY(-5px) scale(1);
+            }
+
+            .course-title {
+                font-size: 1.1rem;
+            }
+            
+            /* Award cards */
+            .award-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 1.5rem;
+            }
+
+            .award-icon {
+                font-size: 2.5rem;
+            }
+            
+            /* Publication filters */
+            .publications-filter {
+                gap: 0.5rem;
+            }
+            
+            .filter-btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            /* Highlight boxes */
+            .highlight-box {
+                padding: 2rem 1.5rem;
+            }
+            
+            .highlight-box h3 {
+                font-size: 1.5rem;
+            }
+
+            .highlight-box p {
+                font-size: 1rem;
+            }
+
+            /* Research philosophy and other grid sections */
+            .section div[style*="display: grid"] {
+                grid-template-columns: 1fr !important;
+            }
+
+            /* Section headers */
+            .section-header p {
+                font-size: 1rem;
+            }
+
+            /* Publication cards */
+            .publication-title {
+                font-size: 1.1rem;
+            }
+
+            .publication-authors,
+            .publication-venue {
+                font-size: 0.95rem;
+            }
+        }
+
+        /* Extra small phones */
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .hero h2 {
+                font-size: 1.1rem;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .filter-btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
             }
 
             .section-title {
+                font-size: 1.5rem;
+            }
+
+            .stat-number {
                 font-size: 2rem;
             }
         }
@@ -622,7 +887,8 @@
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="#" class="logo">Iqra Batool</a>
-            <ul class="nav-links">
+            <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#about">About</a></li>
                 <li><a href="news.html">News</a></li>
                 <li><a href="#research">Research</a></li>
@@ -1229,6 +1495,30 @@
     </footer>
 
     <script>
+        // Toggle mobile menu
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const navbar = document.getElementById('navbar');
+            const navLinks = document.getElementById('navLinks');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            if (!navbar.contains(e.target) && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+            }
+        });
+
         // Navbar scroll effect
         window.addEventListener('scroll', function() {
             const navbar = document.getElementById('navbar');
