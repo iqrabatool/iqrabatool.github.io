@@ -614,14 +614,235 @@
         }
 
         /* ============================================
+           AWARD GALLERY STYLES
+           ============================================ */
+
+        .gallery-section {
+            margin-top: 4rem;
+        }
+
+        .gallery-section-title {
+            color: var(--burgundy);
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .gallery-section-subtitle {
+            color: #888;
+            font-size: 1rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            font-style: italic;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(139, 21, 56, 0.12);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid transparent;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(139, 21, 56, 0.25);
+            border-color: var(--gold);
+        }
+
+        .gallery-card-image {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--burgundy), var(--dark-burgundy));
+            position: relative;
+        }
+
+        .gallery-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-card:hover .gallery-card-image img {
+            transform: scale(1.08);
+        }
+
+        .gallery-card-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(139, 21, 56, 0.0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .gallery-card:hover .gallery-card-overlay {
+            background: rgba(139, 21, 56, 0.35);
+        }
+
+        .gallery-view-btn {
+            background: var(--gold);
+            color: var(--dark-burgundy);
+            border: none;
+            padding: 0.8rem 1.8rem;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s;
+            cursor: pointer;
+            font-family: 'Georgia', serif;
+        }
+
+        .gallery-card:hover .gallery-view-btn {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .gallery-card-body {
+            padding: 1.5rem;
+            border-top: 3px solid var(--gold);
+        }
+
+        .gallery-card-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--burgundy), var(--dark-burgundy));
+            color: var(--gold);
+            padding: 0.3rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 0.8rem;
+            letter-spacing: 0.5px;
+        }
+
+        .gallery-card-title {
+            color: var(--burgundy);
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 0.4rem;
+            line-height: 1.4;
+        }
+
+        .gallery-card-meta {
+            color: #888;
+            font-size: 0.88rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        /* ============================================
+           LIGHTBOX STYLES
+           ============================================ */
+
+        .lightbox-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.92);
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .lightbox-overlay.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .lightbox-container {
+            position: relative;
+            max-width: 900px;
+            width: 100%;
+            animation: scaleIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .lightbox-img {
+            width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.8);
+            border: 3px solid var(--gold);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            background: var(--gold);
+            color: var(--dark-burgundy);
+            border: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            font-size: 1.4rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            transition: transform 0.2s;
+            z-index: 10000;
+        }
+
+        .lightbox-close:hover {
+            transform: scale(1.15) rotate(90deg);
+        }
+
+        .lightbox-info {
+            background: linear-gradient(135deg, var(--burgundy), var(--dark-burgundy));
+            border-radius: 0 0 12px 12px;
+            padding: 1.5rem 2rem;
+            text-align: center;
+            border: 3px solid var(--gold);
+            border-top: none;
+            margin-top: -6px;
+        }
+
+        .lightbox-info h3 {
+            color: var(--gold);
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .lightbox-info p {
+            color: var(--light-gold);
+            font-size: 0.95rem;
+        }
+
+        /* ============================================
            MOBILE RESPONSIVE STYLES
            ============================================ */
 
         @media (max-width: 768px) {
-            /* Navigation */
-            .menu-toggle {
-                display: block;
-            }
+            .menu-toggle { display: block; }
             
             .nav-links {
                 position: fixed;
@@ -638,248 +859,62 @@
                 overflow-y: auto;
             }
             
-            .nav-links.active {
-                left: 0;
-            }
-            
-            .nav-links li {
-                width: 100%;
-                text-align: center;
-            }
-            
-            .nav-links a {
-                display: block;
-                padding: 1rem;
-                font-size: 1.1rem;
-            }
-
-            .navbar {
-                padding: 0.8rem 1rem;
-            }
-
-            .navbar.scrolled {
-                padding: 0.5rem 1rem;
-            }
-
-            .logo {
-                font-size: 1.2rem;
-            }
-
-            /* Hero section */
-            .hero {
-                padding-top: 100px;
-                padding-bottom: 2rem;
-                padding-left: 1rem;
-                padding-right: 1rem;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero h2 {
-                font-size: 1.2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .hero-content {
-                text-align: center;
-                gap: 2rem;
-            }
-            
-            .hero-text {
-                text-align: center;
-            }
-            
-            .hero-image {
-                flex: 0 0 200px;
-            }
-            
-            .hero-image img {
-                width: 200px;
-                height: 200px;
-                border: 5px solid var(--gold);
-            }
-            
-            /* Contact links */
-            .contact-links {
-                justify-content: center;
-                gap: 1rem;
-            }
-            
-            .contact-links a {
-                font-size: 0.9rem;
-            }
-            
-            /* Sections */
-            .section {
-                margin: 2rem auto;
-                padding: 0 1rem;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-            
-            /* Stats grid */
-            .stats {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
-            }
-            
-            .stat-card {
-                padding: 1.5rem 1rem;
-            }
-            
-            .stat-number {
-                font-size: 2.5rem;
-            }
-
-            .stat-label {
-                font-size: 0.9rem;
-            }
-            
-            /* Experience cards */
-            .experience-card,
-            .publication-card,
-            .news-card {
-                padding: 1.5rem;
-            }
-            
-            .experience-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .experience-title {
-                font-size: 1.2rem;
-            }
-
-            .experience-org {
-                font-size: 1rem;
-            }
-            
-            /* Skills grid */
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            /* Team members */
-            .team-photo {
-                width: 150px;
-                height: 150px;
-            }
-
-            .team-member {
-                padding: 1.5rem;
-            }
-
-            .team-member:hover {
-                transform: translateY(-5px);
-            }
-            
-            /* Course cards */
-            .course-card {
-                padding: 1.5rem;
-            }
-
-            .course-card:hover {
-                transform: translateY(-5px) scale(1);
-            }
-
-            .course-title {
-                font-size: 1.1rem;
-            }
-            
-            /* Award cards */
-            .award-card {
-                flex-direction: column;
-                text-align: center;
-                padding: 1.5rem;
-            }
-
-            .award-icon {
-                font-size: 2.5rem;
-            }
-            
-            /* Publication filters */
-            .publications-filter {
-                gap: 0.5rem;
-            }
-            
-            .filter-btn {
-                padding: 0.6rem 1rem;
-                font-size: 0.9rem;
-            }
-            
-            /* Highlight boxes */
-            .highlight-box {
-                padding: 2rem 1.5rem;
-            }
-            
-            .highlight-box h3 {
-                font-size: 1.5rem;
-            }
-
-            .highlight-box p {
-                font-size: 1rem;
-            }
-
-            /* Research philosophy and other grid sections */
-            .section div[style*="display: grid"] {
-                grid-template-columns: 1fr !important;
-            }
-
-            /* Section headers */
-            .section-header p {
-                font-size: 1rem;
-            }
-
-            /* Publication cards */
-            .publication-title {
-                font-size: 1.1rem;
-            }
-
-            .publication-authors,
-            .publication-venue {
-                font-size: 0.95rem;
-            }
+            .nav-links.active { left: 0; }
+            .nav-links li { width: 100%; text-align: center; }
+            .nav-links a { display: block; padding: 1rem; font-size: 1.1rem; }
+            .navbar { padding: 0.8rem 1rem; }
+            .navbar.scrolled { padding: 0.5rem 1rem; }
+            .logo { font-size: 1.2rem; }
+            .hero { padding-top: 100px; padding-bottom: 2rem; padding-left: 1rem; padding-right: 1rem; }
+            .hero h1 { font-size: 2rem; }
+            .hero h2 { font-size: 1.2rem; }
+            .hero p { font-size: 1rem; }
+            .hero-content { text-align: center; gap: 2rem; }
+            .hero-text { text-align: center; }
+            .hero-image { flex: 0 0 200px; }
+            .hero-image img { width: 200px; height: 200px; border: 5px solid var(--gold); }
+            .contact-links { justify-content: center; gap: 1rem; }
+            .contact-links a { font-size: 0.9rem; }
+            .section { margin: 2rem auto; padding: 0 1rem; }
+            .section-title { font-size: 1.8rem; }
+            .stats { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+            .stat-card { padding: 1.5rem 1rem; }
+            .stat-number { font-size: 2.5rem; }
+            .stat-label { font-size: 0.9rem; }
+            .experience-card, .publication-card, .news-card { padding: 1.5rem; }
+            .experience-header { flex-direction: column; align-items: flex-start; }
+            .experience-title { font-size: 1.2rem; }
+            .experience-org { font-size: 1rem; }
+            .skills-grid { grid-template-columns: 1fr; }
+            .team-photo { width: 150px; height: 150px; }
+            .team-member { padding: 1.5rem; }
+            .team-member:hover { transform: translateY(-5px); }
+            .course-card { padding: 1.5rem; }
+            .course-card:hover { transform: translateY(-5px) scale(1); }
+            .course-title { font-size: 1.1rem; }
+            .award-card { flex-direction: column; text-align: center; padding: 1.5rem; }
+            .award-icon { font-size: 2.5rem; }
+            .publications-filter { gap: 0.5rem; }
+            .filter-btn { padding: 0.6rem 1rem; font-size: 0.9rem; }
+            .highlight-box { padding: 2rem 1.5rem; }
+            .highlight-box h3 { font-size: 1.5rem; }
+            .highlight-box p { font-size: 1rem; }
+            .section div[style*="display: grid"] { grid-template-columns: 1fr !important; }
+            .section-header p { font-size: 1rem; }
+            .publication-title { font-size: 1.1rem; }
+            .publication-authors, .publication-venue { font-size: 0.95rem; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .lightbox-close { top: -15px; right: -10px; }
         }
 
-        /* Extra small phones */
         @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 1.6rem;
-            }
-
-            .hero h2 {
-                font-size: 1.1rem;
-            }
-            
-            .stats {
-                grid-template-columns: 1fr;
-            }
-            
-            .filter-btn {
-                width: 100%;
-                text-align: center;
-            }
-
-            .contact-links {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .section-title {
-                font-size: 1.5rem;
-            }
-
-            .stat-number {
-                font-size: 2rem;
-            }
+            .hero h1 { font-size: 1.6rem; }
+            .hero h2 { font-size: 1.1rem; }
+            .stats { grid-template-columns: 1fr; }
+            .filter-btn { width: 100%; text-align: center; }
+            .contact-links { flex-direction: column; align-items: center; }
+            .section-title { font-size: 1.5rem; }
+            .stat-number { font-size: 2rem; }
         }
     </style>
 </head>
@@ -1026,7 +1061,7 @@
                     <span class="skill-tag">D-Wave</span>
                     <span class="skill-tag">IBM Quantum Experience</span>
                     <span class="skill-tag">Qiskit</span>
-                    <span class="skill-tag">Ocean SDK </span>
+                    <span class="skill-tag">Ocean SDK</span>
                 </div>
             </div>
             <div class="skill-category">
@@ -1126,9 +1161,7 @@
             <p>Building the future of wireless networks through global collaboration with leading researchers and institutions worldwide</p>
         </div>
 
-        <h3 style="color: var(--burgundy); font-size: 2rem; margin-bottom: 2rem; text-align: center;">
-            🌟 Principal Investigator
-        </h3>
+        <h3 style="color: var(--burgundy); font-size: 2rem; margin-bottom: 2rem; text-align: center;">🌟 Principal Investigator</h3>
         
         <div style="max-width: 400px; margin: 0 auto 4rem;">
             <div class="team-member">
@@ -1142,9 +1175,7 @@
             </div>
         </div>
 
-        <h3 style="color: var(--burgundy); font-size: 2rem; margin-bottom: 2rem; text-align: center;">
-            🤝 Supervisors & Collaborators
-        </h3>
+        <h3 style="color: var(--burgundy); font-size: 2rem; margin-bottom: 2rem; text-align: center;">🤝 Supervisors & Collaborators</h3>
         
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; margin-bottom: 3rem;">
             <div class="team-member">
@@ -1156,7 +1187,6 @@
                 <p style="color: #666; margin-top: 1rem; font-size: 0.95rem;">AI-native networks, quantum computing</p>
                 <span class="team-role">Ph.D. Supervisor</span>
             </div>
-            
             <div class="team-member">
                 <div class="team-photo">
                     <img src="fouda.jpg" alt="Dr. Mostafa M. Fouda" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27180%27 height=%27180%27%3E%3Crect fill=%27%238B1538%27 width=%27180%27 height=%27180%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 font-size=%2770%27 fill=%27%23D4AF37%27 text-anchor=%27middle%27 dy=%27.3em%27%3EMF%3C/text%3E%3C/svg%3E'">
@@ -1166,7 +1196,6 @@
                 <p style="color: #666; margin-top: 1rem; font-size: 0.95rem;">6G networks, IoT, deep RL</p>
                 <span class="team-role">Ph.D. Supervisor</span>
             </div>
-
             <div class="team-member">
                 <div class="team-photo">
                     <img src="Gad.jpeg" alt="Gad Gad" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27180%27 height=%27180%27%3E%3Crect fill=%27%238B1538%27 width=%27180%27 height=%27180%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 font-size=%2770%27 fill=%27%23D4AF37%27 text-anchor=%27middle%27 dy=%27.3em%27%3EGG%3C/text%3E%3C/svg%3E'">
@@ -1176,7 +1205,6 @@
                 <p style="color: #666; margin-top: 1rem; font-size: 0.95rem;">6G networks, IoT, Federated Learning, Wifi Sensing</p>
                 <span class="team-role">Collaborator</span>
             </div>
-            
             <div class="team-member">
                 <div class="team-photo">
                     <img src="Ismail.jpeg" alt="Dr. Muhammad Ismail" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27180%27 height=%27180%27%3E%3Crect fill=%27%238B1538%27 width=%27180%27 height=%27180%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 font-size=%2770%27 fill=%27%23D4AF37%27 text-anchor=%27middle%27 dy=%27.3em%27%3EMI%3C/text%3E%3C/svg%3E'">
@@ -1186,7 +1214,6 @@
                 <p style="color: #666; margin-top: 1rem; font-size: 0.95rem;">Vehicular networks, spectrum allocation</p>
                 <span class="team-role">Collaborator</span>
             </div>
-            
             <div class="team-member">
                 <div class="team-photo">
                     <img src="Nei Kato.jpg" alt="Prof. Nei Kato" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27180%27 height=%27180%27%3E%3Crect fill=%27%238B1538%27 width=%27180%27 height=%27180%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 font-size=%2770%27 fill=%27%23D4AF37%27 text-anchor=%27middle%27 dy=%27.3em%27%3ENK%3C/text%3E%3C/svg%3E'">
@@ -1196,23 +1223,21 @@
                 <p style="color: #666; margin-top: 1rem; font-size: 0.95rem;">IEEE Fellow, 5G/6G network intelligence</p>
                 <span class="team-role">International Collaborator</span>
             </div>
-            
             <div class="team-member">
                 <div class="team-photo">
                     <img src="khalid.jpg" alt="Dr. Khaled Rabie" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27180%27 height=%27180%27%3E%3Crect fill=%27%238B1538%27 width=%27180%27 height=%27180%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 font-size=%2770%27 fill=%27%23D4AF37%27 text-anchor=%27middle%27 dy=%27.3em%27%3EKR%3C/text%3E%3C/svg%3E'">
                 </div>
                 <h3 style="color: var(--burgundy); margin-bottom: 0.5rem;">Dr. Khaled Rabie</h3>
-                <p style="color: var(--gold); font-weight: bold;">King Fahad University for Petroleum and Minerals (KFUPM)🇸🇦</p>
+                <p style="color: var(--gold); font-weight: bold;">King Fahad University for Petroleum and Minerals (KFUPM) 🇸🇦</p>
                 <p style="color: #666; margin-top: 1rem; font-size: 0.95rem;">Wireless communications, IoT systems</p>
                 <span class="team-role">Collaborator</span>
             </div>
-            
             <div class="team-member">
                 <div class="team-photo">
                     <img src="ibrahim.jpeg" alt="Dr. Mohamed I. Ibrahem" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27180%27 height=%27180%27%3E%3Crect fill=%27%238B1538%27 width=%27180%27 height=%27180%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 font-size=%2765%27 fill=%27%23D4AF37%27 text-anchor=%27middle%27 dy=%27.3em%27%3EMII%3C/text%3E%3C/svg%3E'">
                 </div>
                 <h3 style="color: var(--burgundy); margin-bottom: 0.5rem;">Dr. Mohamed I. Ibrahem</h3>
-                <p style="color: var(--gold); font-weight: bold;">Augsta University 🇺🇸</p>
+                <p style="color: var(--gold); font-weight: bold;">Augusta University 🇺🇸</p>
                 <p style="color: #666; margin-top: 1rem; font-size: 0.95rem;">Resource allocation, network optimization</p>
                 <span class="team-role">Collaborator</span>
             </div>
@@ -1236,81 +1261,61 @@
             <div class="course-card">
                 <span class="course-code">CS 1027</span>
                 <h3 class="course-title">Java Programming</h3>
-                <p style="color: #666; line-height: 1.7; margin-top: 1rem;">
-                    Introduction to object-oriented programming concepts, data structures, and algorithm development using Java. Focus on practical problem-solving and software design principles.
-                </p>
+                <p style="color: #666; line-height: 1.7; margin-top: 1rem;">Introduction to object-oriented programming concepts, data structures, and algorithm development using Java. Focus on practical problem-solving and software design principles.</p>
                 <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 2px solid var(--light-gold);">
                     <span style="color: var(--burgundy); font-weight: bold;">📚 Topics:</span>
                     <span style="color: #666; font-size: 0.9rem;"> OOP, Data Structures, Algorithms</span>
                 </div>
             </div>
-
             <div class="course-card">
                 <span class="course-code">CS 1037</span>
                 <h3 class="course-title">Computer Science Fundamentals</h3>
-                <p style="color: #666; line-height: 1.7; margin-top: 1rem;">
-                    Core principles of computer science including logic, problem-solving, computational thinking, and foundational programming concepts for aspiring computer scientists.
-                </p>
+                <p style="color: #666; line-height: 1.7; margin-top: 1rem;">Core principles of computer science including logic, problem-solving, computational thinking, and foundational programming concepts for aspiring computer scientists.</p>
                 <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 2px solid var(--light-gold);">
                     <span style="color: var(--burgundy); font-weight: bold;">📚 Topics:</span>
                     <span style="color: #666; font-size: 0.9rem;"> Logic, Problem-solving, Programming</span>
                 </div>
             </div>
-
             <div class="course-card">
                 <span class="course-code">CS 3550</span>
                 <h3 class="course-title">Computer Organization</h3>
-                <p style="color: #666; line-height: 1.7; margin-top: 1rem;">
-                    Understanding computer architecture, processor design, memory hierarchy, and system-level programming. Bridges hardware and software concepts.
-                </p>
+                <p style="color: #666; line-height: 1.7; margin-top: 1rem;">Understanding computer architecture, processor design, memory hierarchy, and system-level programming. Bridges hardware and software concepts.</p>
                 <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 2px solid var(--light-gold);">
                     <span style="color: var(--burgundy); font-weight: bold;">📚 Topics:</span>
                     <span style="color: #666; font-size: 0.9rem;"> Architecture, Processors, Memory Systems</span>
                 </div>
             </div>
-
             <div class="course-card">
                 <span class="course-code">CSC-711</span>
                 <h3 class="course-title">Advanced Artificial Intelligence</h3>
-                <p style="color: #666; line-height: 1.7; margin-top: 1rem;">
-                    Graduate-level exploration of AI techniques including machine learning, deep learning, neural networks, and intelligent agents. Focus on cutting-edge research and applications.
-                </p>
+                <p style="color: #666; line-height: 1.7; margin-top: 1rem;">Graduate-level exploration of AI techniques including machine learning, deep learning, neural networks, and intelligent agents. Focus on cutting-edge research and applications.</p>
                 <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 2px solid var(--light-gold);">
                     <span style="color: var(--burgundy); font-weight: bold;">📚 Topics:</span>
                     <span style="color: #666; font-size: 0.9rem;"> ML, Deep Learning, Neural Networks</span>
                 </div>
             </div>
-
             <div class="course-card">
                 <span class="course-code">SCS 211</span>
                 <h3 class="course-title">Data Structures and Algorithms</h3>
-                <p style="color: #666; line-height: 1.7; margin-top: 1rem;">
-                    Comprehensive study of fundamental data structures and algorithmic techniques. Emphasis on complexity analysis, optimization, and practical implementation.
-                </p>
+                <p style="color: #666; line-height: 1.7; margin-top: 1rem;">Comprehensive study of fundamental data structures and algorithmic techniques. Emphasis on complexity analysis, optimization, and practical implementation.</p>
                 <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 2px solid var(--light-gold);">
                     <span style="color: var(--burgundy); font-weight: bold;">📚 Topics:</span>
                     <span style="color: #666; font-size: 0.9rem;"> Trees, Graphs, Sorting, Searching</span>
                 </div>
             </div>
-
             <div class="course-card">
                 <span class="course-code">CSC-222</span>
                 <h3 class="course-title">Data Communication and Networking</h3>
-                <p style="color: #666; line-height: 1.7; margin-top: 1rem;">
-                    Network protocols, architectures, and communication systems. Covers OSI model, TCP/IP, routing, and modern networking technologies.
-                </p>
+                <p style="color: #666; line-height: 1.7; margin-top: 1rem;">Network protocols, architectures, and communication systems. Covers OSI model, TCP/IP, routing, and modern networking technologies.</p>
                 <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 2px solid var(--light-gold);">
                     <span style="color: var(--burgundy); font-weight: bold;">📚 Topics:</span>
                     <span style="color: #666; font-size: 0.9rem;"> Protocols, TCP/IP, Network Security</span>
                 </div>
             </div>
-
             <div class="course-card">
                 <span class="course-code">EET-455</span>
                 <h3 class="course-title">Wireless Communications</h3>
-                <p style="color: #666; line-height: 1.7; margin-top: 1rem;">
-                    Advanced wireless communication systems, modulation techniques, channel modeling, and 5G/6G technologies. Integration of theory with practical applications.
-                </p>
+                <p style="color: #666; line-height: 1.7; margin-top: 1rem;">Advanced wireless communication systems, modulation techniques, channel modeling, and 5G/6G technologies. Integration of theory with practical applications.</p>
                 <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 2px solid var(--light-gold);">
                     <span style="color: var(--burgundy); font-weight: bold;">📚 Topics:</span>
                     <span style="color: #666; font-size: 0.9rem;"> 5G/6G, Modulation, Channel Modeling</span>
@@ -1326,6 +1331,9 @@
         </div>
     </section>
 
+    <!-- ============================================
+         AWARDS SECTION
+         ============================================ -->
     <section class="section" id="awards">
         <h2 class="section-title">Awards & Recognition</h2>
         <h3 style="color: var(--burgundy); font-size: 1.8rem; margin-top: 2rem; margin-bottom: 1.5rem; text-align: center;">🏆 Honors & Recognition</h3>
@@ -1341,7 +1349,6 @@
                 </div>
                 <p style="color: #666; font-size: 0.95rem; line-height: 1.6;">Full funding for doctoral research in 5G/6G networks and AI (2023-2026)</p>
             </div>
-            
             <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(139, 21, 56, 0.1); border-left: 5px solid var(--gold);">
                 <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1rem;">
                     <div style="font-size: 3rem;">🥇</div>
@@ -1352,7 +1359,6 @@
                 </div>
                 <p style="color: #666; font-size: 0.95rem; line-height: 1.6;">Highest academic achievement in Master's program, Bahria University</p>
             </div>
-            
             <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(139, 21, 56, 0.1); border-left: 5px solid var(--burgundy);">
                 <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1rem;">
                     <div style="font-size: 3rem;">🌟</div>
@@ -1363,7 +1369,6 @@
                 </div>
                 <p style="color: #666; font-size: 0.95rem; line-height: 1.6;">Awarded for exceptional academic performance and research excellence</p>
             </div>
-            
             <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(139, 21, 56, 0.1); border-left: 5px solid var(--gold);">
                 <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1rem;">
                     <div style="font-size: 3rem;">⭐</div>
@@ -1374,7 +1379,6 @@
                 </div>
                 <p style="color: #666; font-size: 0.95rem; line-height: 1.6;">Undergraduate merit scholarship for outstanding academic achievement</p>
             </div>
-            
             <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(139, 21, 56, 0.1); border-left: 5px solid var(--burgundy);">
                 <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1rem;">
                     <div style="font-size: 3rem;">🏆</div>
@@ -1387,7 +1391,53 @@
             </div>
         </div>
 
-        <h3 style="color: var(--burgundy); font-size: 1.8rem; margin-top: 3rem; margin-bottom: 1.5rem; text-align: center;">Professional Service & Recognition</h3>
+        <!-- ============================================
+             AWARD CERTIFICATE GALLERY  ← NEW SECTION
+             ============================================ -->
+        <div class="gallery-section">
+            <h3 class="gallery-section-title">📜 Award Certificates Gallery</h3>
+            <p class="gallery-section-subtitle">Click any certificate to view in full size</p>
+
+            <div class="gallery-grid">
+
+                <!-- WINCOM 2025 Best Paper Award -->
+                <div class="gallery-card" onclick="openLightbox('BPA_WINCOM_2026.jpg', 'Best Paper Award — IEEE WINCOM 2025', 'PFANS: an Intelligent 6G Framework for Dynamic Autonomous Vehicle Learning · Riyadh, Saudi Arabia')">
+                    <div class="gallery-card-image">
+                        <img src="BPA_WINCOM_2026.jpg" alt="Best Paper Award WINCOM 2025"
+                             onerror="this.parentElement.style.background='linear-gradient(135deg,#8B1538,#6B0F2A)'; this.style.display='none';">
+                        <div class="gallery-card-overlay">
+                            <button class="gallery-view-btn">🔍 View Certificate</button>
+                        </div>
+                    </div>
+                    <div class="gallery-card-body">
+                        <span class="gallery-card-badge">🏆 Best Paper Award</span>
+                        <div class="gallery-card-title">IEEE WINCOM 2025</div>
+                        <div class="gallery-card-meta">📅 November 25–27, 2025 &nbsp;|&nbsp; 📍 Riyadh, Saudi Arabia</div>
+                    </div>
+                </div>
+
+                <!-- Placeholder card — add more certificates here -->
+                <!-- 
+                <div class="gallery-card" onclick="openLightbox('YOUR_CERT.jpg', 'Award Title', 'Details here')">
+                    <div class="gallery-card-image">
+                        <img src="YOUR_CERT.jpg" alt="Certificate">
+                        <div class="gallery-card-overlay">
+                            <button class="gallery-view-btn">🔍 View Certificate</button>
+                        </div>
+                    </div>
+                    <div class="gallery-card-body">
+                        <span class="gallery-card-badge">🎓 Scholarship</span>
+                        <div class="gallery-card-title">Award Name</div>
+                        <div class="gallery-card-meta">📅 Year &nbsp;|&nbsp; 📍 Institution</div>
+                    </div>
+                </div>
+                -->
+
+            </div>
+        </div>
+        <!-- END GALLERY -->
+
+        <h3 style="color: var(--burgundy); font-size: 1.8rem; margin-top: 4rem; margin-bottom: 1.5rem; text-align: center;">Professional Service & Recognition</h3>
         
         <div style="background: white; padding: 2.5rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(139, 21, 56, 0.1); margin-bottom: 2rem;">
             <h3 style="color: var(--burgundy); font-size: 1.6rem; margin-bottom: 1.5rem; text-align: center;">
@@ -1494,231 +1544,106 @@
         <p style="margin-top: 0.5rem; font-size: 0.9rem;">Empowering the future of wireless communication through AI and innovation.</p>
     </footer>
 
-    <script>
-        // Toggle mobile menu
-        function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
-        }
+    <!-- ============================================
+         LIGHTBOX MODAL
+         ============================================ -->
+    <div class="lightbox-overlay" id="lightboxOverlay" onclick="closeLightboxOnBg(event)">
+        <div class="lightbox-container" id="lightboxContainer">
+            <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+            <img id="lightboxImg" class="lightbox-img" src="" alt="">
+            <div class="lightbox-info">
+                <h3 id="lightboxTitle"></h3>
+                <p id="lightboxMeta"></p>
+            </div>
+        </div>
+    </div>
 
-        // Close menu when clicking on a link
+    <script>
+        // ── Mobile menu ──────────────────────────────────────────
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 document.getElementById('navLinks').classList.remove('active');
             });
         });
-
-        // Close menu when clicking outside
         document.addEventListener('click', (e) => {
             const navbar = document.getElementById('navbar');
             const navLinks = document.getElementById('navLinks');
-            const menuToggle = document.querySelector('.menu-toggle');
-            
             if (!navbar.contains(e.target) && navLinks.classList.contains('active')) {
                 navLinks.classList.remove('active');
             }
         });
 
-        // Navbar scroll effect
+        // ── Navbar scroll effect ────────────────────────────────
         window.addEventListener('scroll', function() {
             const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
         });
 
-        // Publications data
+        // ── Lightbox ─────────────────────────────────────────────
+        function openLightbox(imgSrc, title, meta) {
+            document.getElementById('lightboxImg').src = imgSrc;
+            document.getElementById('lightboxTitle').textContent = title;
+            document.getElementById('lightboxMeta').textContent = meta;
+            document.getElementById('lightboxOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightboxOverlay').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function closeLightboxOnBg(e) {
+            if (e.target === document.getElementById('lightboxOverlay')) {
+                closeLightbox();
+            }
+        }
+
+        // Close with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+
+        // ── Publications data ────────────────────────────────────
         const publications = {
             journal: [
-                {
-                    title: "Joint Optimization of IRS and THz Resource Allocation in 6G IoT Networks: An Adaptive Online MADDPG Approach",
-                    authors: "Iqra Batool, Mostafa M. Fouda, Muhammad Ismail, Mohamed I. Ibrahem, Khaled Rabie, Shikhar Verma, Zubair Md Fadlullah",
-                    venue: "IEEE Internet of Things Journal (IEEE IoTJ)",
-                    status: "published"
-                },
-                {
-                    title: "AMADRL: Privacy-Aware Attention-Based Multi-Agent Deep Reinforcement Learning for Optimizing Spectral Allocation in 6G Vehicular Networks",
-                    authors: "Iqra Batool, Mostafa Fouda, Muhammad Ismail, Khaled Rabie, Shikhar Verma, Zubair Fadlullah",
-                    venue: "IEEE Internet of Things Journal (IEEE IoTJ)",
-                    status: "published"
-                },
-                {
-                    title: "Quantum-Enhanced Massive MIMO Beamforming for 6G IoT Networks: A QAOA-Based Optimization Framework",
-                    authors: "Iqra Batool, Mostafa Fouda, Muhammad Ismail, Mohamed Ibrahem, Zubair Md Fadlullah, Nei Kato",
-                    venue: "IEEE Open Journal of the Communications Society (OJ-COMS)",
-                    status: "published"
-                },
-                {
-                    title: "AI-Native Predictive Scheduling for Computing Power Networks: A Multi-Scale Learning Framework for Ultra-Low Latency 6G Applications",
-                    authors: "Iqra Batool, Mostafa Fouda, Zubair Fadlullah",
-                    venue: "IEEE Transactions on Network Science and Engineering",
-                    status: "published"
-                },
-                {
-                    title: "Privacy-Preserving Federated Meta-Learning for Cell-Free Massive MIMO: Instant Adaptation with Distributed Intelligence",
-                    authors: "Iqra Batool, Mostafa Fouda, Muhammad Ibrahim, Zubair Fadlullah",
-                    venue: "IEEE Internet of Things Journal (IEEE IoTJ)",
-                    status: "accepted"
-                },
-                {
-                    title: "H-MARC: Hierarchical Mobile Adaptive Relay Control for Ultra-Reliable mmWave Communications in 6G Networks",
-                    authors: "Iqra Batool, Mostafa Fouda, Zubair Fadlullah",
-                    venue: "IEEE Internet of Things Journal (IEEE IoTJ)",
-                    status: "accepted"
-                },
-                {
-                    title: "Privacy-Embedded Spectrum Coordination in 6G V2X Networks: An Attention-Driven Multi-Agent Learning Approach",
-                    authors: "Iqra Batool, Mostafa Fouda, Muhammad Ismail, Zubair Fadlullah, Nei Kato",
-                    venue: "IEEE Network Magazine",
-                    status: "accepted"
-                },
-                {
-                    title: "QUINOA: Quantum-Unified Intelligent Network Orchestration and Automation for 6G Heterogeneous Networks",
-                    authors: "Iqra Batool, Mostafa Fouda, Muhammad Ismail, Zubair Fadlullah",
-                    venue: "IEEE Open Journal of the Communications Society (OJ-COMS)",
-                    status: "review"
-                },
-                {
-                    title: "Real-time health monitoring using 5G networks: deep learning–based architecture for remote patient care",
-                    authors: "Iqra Batool",
-                    venue: "JMIRx Med",
-                    status: "published"
-                },
-                {
-                    title: "Software fault prediction using data mining, machine learning and deep learning techniques: A systematic literature review",
-                    authors: "Iqra Batool, Tamim Ahmad Khan",
-                    venue: " Elsevier Journal of Computers and Electrical Engineering",
-                    status: "published"
-                },
-                {
-                    title: "Software fault prediction using deep learning techniques",
-                    authors: "Iqra Batool, Tamim Ahmad Khan",
-                    venue: " Springer Software Quality Journal",
-                    status: "published"
-                }
+                { title: "Joint Optimization of IRS and THz Resource Allocation in 6G IoT Networks: An Adaptive Online MADDPG Approach", authors: "Iqra Batool, Mostafa M. Fouda, Muhammad Ismail, Mohamed I. Ibrahem, Khaled Rabie, Shikhar Verma, Zubair Md Fadlullah", venue: "IEEE Internet of Things Journal (IEEE IoTJ)", status: "published" },
+                { title: "AMADRL: Privacy-Aware Attention-Based Multi-Agent Deep Reinforcement Learning for Optimizing Spectral Allocation in 6G Vehicular Networks", authors: "Iqra Batool, Mostafa Fouda, Muhammad Ismail, Khaled Rabie, Shikhar Verma, Zubair Fadlullah", venue: "IEEE Internet of Things Journal (IEEE IoTJ)", status: "published" },
+                { title: "Quantum-Enhanced Massive MIMO Beamforming for 6G IoT Networks: A QAOA-Based Optimization Framework", authors: "Iqra Batool, Mostafa Fouda, Muhammad Ismail, Mohamed Ibrahem, Zubair Md Fadlullah, Nei Kato", venue: "IEEE Open Journal of the Communications Society (OJ-COMS)", status: "published" },
+                { title: "AI-Native Predictive Scheduling for Computing Power Networks: A Multi-Scale Learning Framework for Ultra-Low Latency 6G Applications", authors: "Iqra Batool, Mostafa Fouda, Zubair Fadlullah", venue: "IEEE Transactions on Network Science and Engineering", status: "published" },
+                { title: "Privacy-Preserving Federated Meta-Learning for Cell-Free Massive MIMO: Instant Adaptation with Distributed Intelligence", authors: "Iqra Batool, Mostafa Fouda, Muhammad Ibrahim, Zubair Fadlullah", venue: "IEEE Internet of Things Journal (IEEE IoTJ)", status: "accepted" },
+                { title: "H-MARC: Hierarchical Mobile Adaptive Relay Control for Ultra-Reliable mmWave Communications in 6G Networks", authors: "Iqra Batool, Mostafa Fouda, Zubair Fadlullah", venue: "IEEE Internet of Things Journal (IEEE IoTJ)", status: "accepted" },
+                { title: "Privacy-Embedded Spectrum Coordination in 6G V2X Networks: An Attention-Driven Multi-Agent Learning Approach", authors: "Iqra Batool, Mostafa Fouda, Muhammad Ismail, Zubair Fadlullah, Nei Kato", venue: "IEEE Network Magazine", status: "accepted" },
+                { title: "QUINOA: Quantum-Unified Intelligent Network Orchestration and Automation for 6G Heterogeneous Networks", authors: "Iqra Batool, Mostafa Fouda, Muhammad Ismail, Zubair Fadlullah", venue: "IEEE Open Journal of the Communications Society (OJ-COMS)", status: "review" },
+                { title: "Real-time health monitoring using 5G networks: deep learning–based architecture for remote patient care", authors: "Iqra Batool", venue: "JMIRx Med", status: "published" },
+                { title: "Software fault prediction using data mining, machine learning and deep learning techniques: A systematic literature review", authors: "Iqra Batool, Tamim Ahmad Khan", venue: "Elsevier Journal of Computers and Electrical Engineering", status: "published" },
+                { title: "Software fault prediction using deep learning techniques", authors: "Iqra Batool, Tamim Ahmad Khan", venue: "Springer Software Quality Journal", status: "published" }
             ],
             conference: [
-                {
-                    title: "Adaptive Resource Allocation in Emerging High-mobility Networks Using Hybrid Deep Learning Models",
-                    authors: "Iqra Batool et al.",
-                    venue: "IEEE International Conference On Communications (ICC)",
-                    status: "published"
-                },
-                {
-                    title: "EXAD: Framework for Designing Explanations in Adaptive User Interfaces",
-                    authors: "Iqra Batool et al.",
-                    venue: "International Congress on Human Computer Interaction, Optimization and Robotic Applications (ICHORA)",
-                    status: "published"
-                },
-                {
-                    title: "Enhanced Environmental Awareness and Security for Smart Devices using WiFi-Sensing",
-                    authors: "Iqra Batool et al.",
-                    venue: "International Congress on Human Computer Interaction, Optimization and Robotic Applications (ICHORA)",
-                    status: "published"
-                },
-                {
-                    title: "Deep Learning-Based Throughput Prediction in 5G Cellular Networks",
-                    authors: "Iqra Batool et al.",
-                    venue: "International Conference of Smart Applications, Communication and Networking (SmartNets)",
-                    status: "published"
-                },
-                {
-                    title: "Combating Neural Network Adversaries in Autonomous Vehicles: a 6G-Ready Defense Framework",
-                    authors: "Iqra Batool et al.",
-                    venue: "IEEE International Conference on Wireless Networks and Mobile Communications (WINCOM)",
-                    status: "published"
-                },
-                {
-                    title: "PFANS: an Intelligent 6G Framework for Dynamic Autonomous Vehicle Learning",
-                    authors: "Iqra Batool et al.",
-                    venue: "IEEE International Conference on Wireless Networks and Mobile Communications (WINCOM)",
-                    status: "published"
-                },
-                {
-                    title: "Privacy-Preserving Energy Forecasting in 5G+ Smart Grids Using PSI-Constrained LSTM Networks",
-                    authors: "Iqra Batool et al.",
-                    venue: "IEEE Virtual Conference on Communications (IEEE VCC)",
-                    status: "published"
-                },
-                {
-                    title: "DRL-Based NFV Orchestration for Ultra-Low Latency Edge Applications",
-                    authors: "Iqra Batool et al.",
-                    venue: "IEEE Virtual Conference on Communications (IEEE VCC)",
-                    status: "published"
-                },
-                {
-                    title: "MAGHE: A Predictive Mobility-Aware Framework for VNF Embedding in B5G Networks",
-                    authors: "Iqra Batool et al.",
-                    venue: "IEEE Virtual Conference on Communications (IEEE VCC)",
-                    status: "published"
-                },
-                {
-                    title: "Hybrid Trajectory Prediction for Robust THz Beam Alignment in Mobile Networks",
-                    authors: "Iqra Batool et al.",
-                    venue: "IEEE Global Communications Conference (GLOBECOM)",
-                    status: "accepted"
-                },
-                {
-                    title: "Adaptive Resource Allocation for 6G Network Slicing via Hybrid CNN-LSTM Architecture",
-                    authors: "Iqra Batool et al.",
-                    venue: "IEEE Vehicular Technology Conference (VTC)",
-                    status: "published"
-                },
-                {
-                    title: "Privacy-Utility Trade-offs in Federated Learning for 6G Networks: A Systematic Evaluation of Software-based Privacy Mechanisms",
-                    authors: "Iqra Batool et al.",
-                    venue: "IEEE International Conference on Scalable Computing and Communications (ScalCom)",
-                    status: "accepted"
-                },
-                {
-                    title: "Securing Encrypted 6G Traffic: An Edge-Optimized AI Framework for Attack Detection",
-                    authors: "Iqra Batool et al.",
-                    venue: "IEEE International Conference on Scalable Computing and Communications (ScalCom)",
-                    status: "accepted"
-                },
-                {
-                    title: "Energy-Efficient Dynamic Spectrum Allocation for Massive THz IoT Networks Using Quantum Approximate Optimization Algorithm",
-                    authors: "Iqra Batool et al.",
-                    venue: "IEEE International Conference On Communications (ICC)",
-                    status: "accepted"
-                },
-                {
-                    title: "Federated Meta-Learning for Ultra-Fast Resource Allocation in Dense Cell-Free Massive MIMO 6G Networks",
-                    authors: "Iqra Batool et al.",
-                    venue: "IEEE International Conference On Communications (ICC)",
-                    status: "accepted"
-                },
-                {
-                    title: "Q-FLAP: Quantum-Secured Federated Learning with Adaptive Protection for Jamming-Resilient LEO Satellite-IoT Networks",
-                    authors: "Iqra Batool et al.",
-                    venue: "IEEE International Conference on Computer Communications (INFOCOM)",
-                    status: "accepted"
-                },
-                
-                
-                {
-                    title: "Hybrid Quantum-Classical Resource Allocation for Distributed Quantum Sensing in 6G Networks",
-                    authors: "Iqra Batool et al.",
-                    venue: "International Conference on Quantum Communications, Networking, and Computing (QCNC 2026)",
-                    status: "submitted"
-                }
-                
+                { title: "Adaptive Resource Allocation in Emerging High-mobility Networks Using Hybrid Deep Learning Models", authors: "Iqra Batool et al.", venue: "IEEE International Conference On Communications (ICC)", status: "published" },
+                { title: "EXAD: Framework for Designing Explanations in Adaptive User Interfaces", authors: "Iqra Batool et al.", venue: "International Congress on Human Computer Interaction, Optimization and Robotic Applications (ICHORA)", status: "published" },
+                { title: "Enhanced Environmental Awareness and Security for Smart Devices using WiFi-Sensing", authors: "Iqra Batool et al.", venue: "International Congress on Human Computer Interaction, Optimization and Robotic Applications (ICHORA)", status: "published" },
+                { title: "Deep Learning-Based Throughput Prediction in 5G Cellular Networks", authors: "Iqra Batool et al.", venue: "International Conference of Smart Applications, Communication and Networking (SmartNets)", status: "published" },
+                { title: "Combating Neural Network Adversaries in Autonomous Vehicles: a 6G-Ready Defense Framework", authors: "Iqra Batool et al.", venue: "IEEE International Conference on Wireless Networks and Mobile Communications (WINCOM)", status: "published" },
+                { title: "PFANS: an Intelligent 6G Framework for Dynamic Autonomous Vehicle Learning", authors: "Iqra Batool et al.", venue: "IEEE International Conference on Wireless Networks and Mobile Communications (WINCOM)", status: "published" },
+                { title: "Privacy-Preserving Energy Forecasting in 5G+ Smart Grids Using PSI-Constrained LSTM Networks", authors: "Iqra Batool et al.", venue: "IEEE Virtual Conference on Communications (IEEE VCC)", status: "published" },
+                { title: "DRL-Based NFV Orchestration for Ultra-Low Latency Edge Applications", authors: "Iqra Batool et al.", venue: "IEEE Virtual Conference on Communications (IEEE VCC)", status: "published" },
+                { title: "MAGHE: A Predictive Mobility-Aware Framework for VNF Embedding in B5G Networks", authors: "Iqra Batool et al.", venue: "IEEE Virtual Conference on Communications (IEEE VCC)", status: "published" },
+                { title: "Hybrid Trajectory Prediction for Robust THz Beam Alignment in Mobile Networks", authors: "Iqra Batool et al.", venue: "IEEE Global Communications Conference (GLOBECOM)", status: "accepted" },
+                { title: "Adaptive Resource Allocation for 6G Network Slicing via Hybrid CNN-LSTM Architecture", authors: "Iqra Batool et al.", venue: "IEEE Vehicular Technology Conference (VTC)", status: "published" },
+                { title: "Privacy-Utility Trade-offs in Federated Learning for 6G Networks: A Systematic Evaluation of Software-based Privacy Mechanisms", authors: "Iqra Batool et al.", venue: "IEEE International Conference on Scalable Computing and Communications (ScalCom)", status: "accepted" },
+                { title: "Securing Encrypted 6G Traffic: An Edge-Optimized AI Framework for Attack Detection", authors: "Iqra Batool et al.", venue: "IEEE International Conference on Scalable Computing and Communications (ScalCom)", status: "accepted" },
+                { title: "Energy-Efficient Dynamic Spectrum Allocation for Massive THz IoT Networks Using Quantum Approximate Optimization Algorithm", authors: "Iqra Batool et al.", venue: "IEEE International Conference On Communications (ICC)", status: "accepted" },
+                { title: "Federated Meta-Learning for Ultra-Fast Resource Allocation in Dense Cell-Free Massive MIMO 6G Networks", authors: "Iqra Batool et al.", venue: "IEEE International Conference On Communications (ICC)", status: "accepted" },
+                { title: "Q-FLAP: Quantum-Secured Federated Learning with Adaptive Protection for Jamming-Resilient LEO Satellite-IoT Networks", authors: "Iqra Batool et al.", venue: "IEEE International Conference on Computer Communications (INFOCOM)", status: "accepted" },
+                { title: "Hybrid Quantum-Classical Resource Allocation for Distributed Quantum Sensing in 6G Networks", authors: "Iqra Batool et al.", venue: "International Conference on Quantum Communications, Networking, and Computing (QCNC 2026)", status: "submitted" }
             ],
             book: [
-                {
-                    title: "Intelligent Resource Allocation for 6G-Enabled IoT Sensing Networks in Smart Cities",
-                    authors: "Iqra Batool et al.",
-                    venue: "IET International Book Series on Sensors",
-                    status: "accepted"
-                },
-                {
-                    title: "Trustworthy Resource Allocation in AI-Driven 6G Sensing Networks",
-                    authors: "Iqra Batool et al.",
-                    venue: "IET International Book Series on Sensors",
-                    status: "accepted"
-                }
+                { title: "Intelligent Resource Allocation for 6G-Enabled IoT Sensing Networks in Smart Cities", authors: "Iqra Batool et al.", venue: "IET International Book Series on Sensors", status: "accepted" },
+                { title: "Trustworthy Resource Allocation in AI-Driven 6G Sensing Networks", authors: "Iqra Batool et al.", venue: "IET International Book Series on Sensors", status: "accepted" }
             ]
         };
 
@@ -1727,80 +1652,54 @@
         function renderPublications(filter) {
             const container = document.getElementById('publicationsContainer');
             container.innerHTML = '';
-            
-            let publicationsToShow = [];
-            
+            let pubs = [];
             if (filter === 'all') {
-                publicationsToShow = [
+                pubs = [
                     ...publications.journal.map(p => ({...p, type: 'journal'})),
                     ...publications.conference.map(p => ({...p, type: 'conference'})),
                     ...publications.book.map(p => ({...p, type: 'book'}))
                 ];
-            } else if (filter === 'journal') {
-                publicationsToShow = publications.journal.map(p => ({...p, type: 'journal'}));
-            } else if (filter === 'conference') {
-                publicationsToShow = publications.conference.map(p => ({...p, type: 'conference'}));
-            } else if (filter === 'book') {
-                publicationsToShow = publications.book.map(p => ({...p, type: 'book'}));
+            } else {
+                pubs = publications[filter].map(p => ({...p, type: filter}));
             }
 
-            publicationsToShow.forEach((pub, index) => {
-                const statusClass = 
-                    pub.status === 'published' ? 'status-published' :
-                    pub.status === 'accepted' ? 'status-accepted' :
-                    pub.status === 'review' ? 'status-review' :
-                    'status-submitted';
-                
-                const statusText = 
-                    pub.status === 'published' ? 'Published' :
-                    pub.status === 'accepted' ? 'Accepted' :
-                    pub.status === 'review' ? 'Under Review' :
-                    'Submitted';
-
+            pubs.forEach(pub => {
+                const statusClass = { published: 'status-published', accepted: 'status-accepted', review: 'status-review', submitted: 'status-submitted' }[pub.status] || 'status-submitted';
+                const statusText = { published: 'Published', accepted: 'Accepted', review: 'Under Review', submitted: 'Submitted' }[pub.status] || 'Submitted';
                 const typeLabel = pub.type === 'journal' ? '📄 Journal' : pub.type === 'conference' ? '🎤 Conference' : '📚 Book Chapter';
-
                 const card = document.createElement('div');
                 card.className = 'publication-card';
                 card.innerHTML = `
-                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem; flex-wrap: wrap; gap: 1rem;">
-                        <div style="color: #666; font-size: 0.9rem;">${typeLabel}</div>
+                    <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:1rem;flex-wrap:wrap;gap:1rem;">
+                        <div style="color:#666;font-size:.9rem;">${typeLabel}</div>
                         <span class="publication-status ${statusClass}">${statusText}</span>
                     </div>
                     <div class="publication-title">${pub.title}</div>
                     <div class="publication-authors">${pub.authors}</div>
-                    <div class="publication-venue">${pub.venue}</div>
-                `;
+                    <div class="publication-venue">${pub.venue}</div>`;
                 container.appendChild(card);
             });
 
-            if (publicationsToShow.length === 0) {
-                container.innerHTML = '<p style="text-align: center; color: #666; padding: 2rem;">No publications found in this category.</p>';
+            if (pubs.length === 0) {
+                container.innerHTML = '<p style="text-align:center;color:#666;padding:2rem;">No publications found in this category.</p>';
             }
         }
 
         function filterPublications(filter) {
             currentFilter = filter;
-            const buttons = document.querySelectorAll('.filter-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
             renderPublications(filter);
         }
 
-        // Initial render
         renderPublications('all');
 
-        // Smooth scrolling for navigation links
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                
                 const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
     </script>
