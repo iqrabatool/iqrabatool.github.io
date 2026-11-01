@@ -433,6 +433,20 @@
             margin-top: 4rem;
         }
 
+        .paper-link {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.45rem 1.1rem;
+            background: var(--burgundy);
+            color: var(--gold);
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .paper-link:hover { background: var(--gold); color: var(--burgundy); }
+        .publication-title a:hover { color: var(--burgundy) !important; text-decoration: underline !important; }
         .news-card {
             background: white;
             padding: 2rem;
@@ -1642,24 +1656,24 @@
         // ── Publications data ────────────────────────────────────
         const publications = {
             journal: [
-                { title: "Joint Optimization of IRS and THz Resource Allocation in 6G IoT Networks: An Adaptive Online MADDPG Approach", authors: "Iqra Batool, Mostafa M. Fouda, Muhammad Ismail, Mohamed I. Ibrahem, Khaled Rabie, Shikhar Verma, Zubair Md Fadlullah", venue: "IEEE Internet of Things Journal (IEEE IoTJ)", status: "published" },
-                { title: "AMADRL: Privacy-Aware Attention-Based Multi-Agent Deep Reinforcement Learning for Optimizing Spectral Allocation in 6G Vehicular Networks", authors: "Iqra Batool, Mostafa Fouda, Muhammad Ismail, Khaled Rabie, Shikhar Verma, Zubair Fadlullah", venue: "IEEE Internet of Things Journal (IEEE IoTJ)", status: "published" },
-                { title: "Quantum-Enhanced Massive MIMO Beamforming for 6G IoT Networks: A QAOA-Based Optimization Framework", authors: "Iqra Batool, Mostafa Fouda, Muhammad Ismail, Mohamed Ibrahem, Zubair Md Fadlullah, Nei Kato", venue: "IEEE Open Journal of the Communications Society (OJ-COMS)", status: "published" },
-                { title: "AI-Native Predictive Scheduling for Computing Power Networks: A Multi-Scale Learning Framework for Ultra-Low Latency 6G Applications", authors: "Iqra Batool, Mostafa Fouda, Zubair Fadlullah", venue: "IEEE Transactions on Network Science and Engineering", status: "published" },
-                { title: "Privacy-Preserving Federated Meta-Learning for Cell-Free Massive MIMO: Instant Adaptation with Distributed Intelligence", authors: "Iqra Batool, Mostafa Fouda, Muhammad Ibrahim, Zubair Fadlullah", venue: "IEEE Internet of Things Journal (IEEE IoTJ)", status: "published" },
-                { title: "Context-Aware Hierarchical Learning for Mobile Relay Control in mmWave 6G-IoT Networks", authors: "Iqra Batool, Mostafa Fouda, Zubair Fadlullah", venue: "IEEE Internet of Things Journal (IEEE IoTJ)", status: "published" },
-                { title: "Privacy-Embedded Spectrum Coordination in 6G V2X Networks: An Attention-Driven Multi-Agent Learning Approach", authors: "Iqra Batool, Mostafa Fouda, Muhammad Ismail, Zubair Fadlullah, Nei Kato", venue: "IEEE Network Magazine", status: "published" },
-                { title: "QUINOA: Quantum-Unified Intelligent Network Orchestration and Automation for 6G Heterogeneous Networks", authors: "Iqra Batool, Mostafa Fouda, Muhammad Ismail, Zubair Fadlullah", venue: "IEEE Internet of Things Journal (IEEE IoTJ)", status: "published" },
-                { title: "Real-time health monitoring using 5G networks: deep learning–based architecture for remote patient care", authors: "Iqra Batool", venue: "JMIRx Med", status: "published" },
-                { title: "Software fault prediction using data mining, machine learning and deep learning techniques: A systematic literature review", authors: "Iqra Batool, Tamim Ahmad Khan", venue: "Elsevier Journal of Computers and Electrical Engineering", status: "published" },
-                { title: "Software fault prediction using deep learning techniques", authors: "Iqra Batool, Tamim Ahmad Khan", venue: "Springer Software Quality Journal", status: "published" }
+                { title: "Joint Optimization of IRS and THz Resource Allocation in 6G IoT Networks: An Adaptive Online MADDPG Approach", authors: "Iqra Batool, Mostafa M. Fouda, Muhammad Ismail, Mohamed I. Ibrahem, Khaled Rabie, Shikhar Verma, Zubair Md Fadlullah", venue: "IEEE Internet of Things Journal (IEEE IoTJ)", url: "https://ieeexplore.ieee.org/document/11136121", status: "published" },
+                { title: "AMADRL: Privacy-Aware Attention-Based Multi-Agent Deep Reinforcement Learning for Optimizing Spectral Allocation in 6G Vehicular Networks", authors: "Iqra Batool, Mostafa Fouda, Muhammad Ismail, Khaled Rabie, Shikhar Verma, Zubair Fadlullah", venue: "IEEE Internet of Things Journal (IEEE IoTJ)", url: "https://ieeexplore.ieee.org/document/11269781", status: "published" },
+                { title: "Quantum-Enhanced Massive MIMO Beamforming for 6G IoT Networks: A QAOA-Based Optimization Framework", authors: "Iqra Batool, Mostafa Fouda, Muhammad Ismail, Mohamed Ibrahem, Zubair Md Fadlullah, Nei Kato", venue: "IEEE Open Journal of the Communications Society (OJ-COMS)", url: "https://doi.org/10.1109/OJCOMS.2025.3645207", status: "published" },
+                { title: "AI-Native Predictive Scheduling for Computing Power Networks: A Multi-Scale Learning Framework for Ultra-Low Latency 6G Applications", authors: "Iqra Batool, Mostafa Fouda, Zubair Fadlullah", venue: "IEEE Transactions on Network Science and Engineering", url: "https://doi.org/10.1109/TNSE.2026.3650877", status: "published" },
+                { title: "Privacy-Preserving Federated Meta-Learning for Cell-Free Massive MIMO: Instant Adaptation with Distributed Intelligence", authors: "Iqra Batool, Mostafa Fouda, Muhammad Ibrahim, Zubair Fadlullah", venue: "IEEE Internet of Things Journal (IEEE IoTJ)", url: "https://doi.org/10.1109/JIOT.2026.3662248", status: "published" },
+                { title: "Context-Aware Hierarchical Learning for Mobile Relay Control in mmWave 6G-IoT Networks", authors: "Iqra Batool, Mostafa Fouda, Zubair Fadlullah", venue: "IEEE Internet of Things Journal (IEEE IoTJ)", url: "https://doi.org/10.1109/JIOT.2026.3672032", status: "published" },
+                { title: "Privacy-Embedded Spectrum Coordination in 6G V2X Networks: An Attention-Driven Multi-Agent Learning Approach", authors: "Iqra Batool, Mostafa Fouda, Muhammad Ismail, Zubair Fadlullah, Nei Kato", venue: "IEEE Network Magazine", url: "https://doi.org/10.1109/MNET.2026.3690057", status: "published" },
+                { title: "QUINOA: Quantum-Unified Intelligent Network Orchestration and Automation for 6G Heterogeneous Networks", authors: "Iqra Batool, Mostafa Fouda, Muhammad Ismail, Zubair Fadlullah", venue: "IEEE Internet of Things Journal (IEEE IoTJ)", url: "https://doi.org/10.1109/JIOT.2026.3706349", status: "published" },
+                { title: "Real-time health monitoring using 5G networks: deep learning–based architecture for remote patient care", authors: "Iqra Batool", venue: "JMIRx Med", url: "https://doi.org/10.2196/70906", status: "published" },
+                { title: "Software fault prediction using data mining, machine learning and deep learning techniques: A systematic literature review", authors: "Iqra Batool, Tamim Ahmad Khan", venue: "Elsevier Journal of Computers and Electrical Engineering", url: "https://doi.org/10.1016/j.compeleceng.2022.107886", status: "published" },
+                { title: "Software fault prediction using deep learning techniques", authors: "Iqra Batool, Tamim Ahmad Khan", venue: "Springer Software Quality Journal", url: "https://doi.org/10.1007/s11219-023-09642-4", status: "published" }
             ],
             conference: [
                 { title: "Adaptive Resource Allocation in Emerging High-mobility Networks Using Hybrid Deep Learning Models", authors: "Iqra Batool et al.", venue: "IEEE International Conference On Communications (ICC)", status: "published" },
                 { title: "EXAD: Framework for Designing Explanations in Adaptive User Interfaces", authors: "Iqra Batool et al.", venue: "International Congress on Human Computer Interaction, Optimization and Robotic Applications (ICHORA)", status: "published" },
                 { title: "Enhanced Environmental Awareness and Security for Smart Devices using WiFi-Sensing", authors: "Iqra Batool et al.", venue: "International Congress on Human Computer Interaction, Optimization and Robotic Applications (ICHORA)", status: "published" },
                 { title: "Deep Learning-Based Throughput Prediction in 5G Cellular Networks", authors: "Iqra Batool et al.", venue: "International Conference of Smart Applications, Communication and Networking (SmartNets)", status: "published" },
-                { title: "Combating Neural Network Adversaries in Autonomous Vehicles: a 6G-Ready Defense Framework", authors: "Iqra Batool et al.", venue: "IEEE International Conference on Wireless Networks and Mobile Communications (WINCOM)", status: "published" },
+                { title: "Combating Neural Network Adversaries in Autonomous Vehicles: a 6G-Ready Defense Framework", authors: "Iqra Batool et al.", venue: "IEEE International Conference on Wireless Networks and Mobile Communications (WINCOM)", url: "https://doi.org/10.1109/WINCOM65874.2025.11313441", status: "published" },
                 { title: "PFANS: an Intelligent 6G Framework for Dynamic Autonomous Vehicle Learning", authors: "Iqra Batool et al.", venue: "IEEE International Conference on Wireless Networks and Mobile Communications (WINCOM)", status: "published" },
                 { title: "Privacy-Preserving Energy Forecasting in 5G+ Smart Grids Using PSI-Constrained LSTM Networks", authors: "Iqra Batool et al.", venue: "IEEE Virtual Conference on Communications (IEEE VCC)", status: "published" },
                 { title: "DRL-Based NFV Orchestration for Ultra-Low Latency Edge Applications", authors: "Iqra Batool et al.", venue: "IEEE Virtual Conference on Communications (IEEE VCC)", status: "published" },
@@ -1701,6 +1715,11 @@
                 const statusClass = { published: 'status-published', accepted: 'status-accepted', review: 'status-review', submitted: 'status-submitted' }[pub.status] || 'status-submitted';
                 const statusText = { published: 'Published', accepted: 'Accepted', review: 'Under Review', submitted: 'Submitted' }[pub.status] || 'Submitted';
                 const typeLabel = pub.type === 'journal' ? '📄 Journal' : pub.type === 'conference' ? '🎤 Conference' : '📚 Book Chapter';
+                const link = pub.url || (pub.status === 'published'
+                    ? (pub.venue.includes('IET')
+                        ? 'https://scholar.google.com/scholar?q=' + encodeURIComponent('"' + pub.title + '"')
+                        : 'https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=' + encodeURIComponent('"' + pub.title + '"'))
+                    : null);
                 const card = document.createElement('div');
                 card.className = 'publication-card';
                 card.innerHTML = `
@@ -1708,9 +1727,10 @@
                         <div style="color:#666;font-size:.9rem;">${typeLabel}</div>
                         <span class="publication-status ${statusClass}">${statusText}</span>
                     </div>
-                    <div class="publication-title">${pub.title}</div>
+                    <div class="publication-title">${link ? `<a href="${link}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">${pub.title}</a>` : pub.title}</div>
                     <div class="publication-authors">${pub.authors}</div>
-                    <div class="publication-venue">${pub.venue}</div>`;
+                    <div class="publication-venue">${pub.venue}</div>
+                    ${link ? `<a href="${link}" target="_blank" rel="noopener" class="paper-link">${pub.url ? 'View Paper ↗' : (pub.venue.includes('IET') ? 'Find on Google Scholar ↗' : 'Find on IEEE Xplore ↗')}</a>` : ''}`;
                 container.appendChild(card);
             });
 
