@@ -1317,6 +1317,14 @@
         .hero-badge .pulse-dot { flex: 0 0 8px; }
         @media (max-width: 1280px) { .hero-badge { font-size: 0.66rem; } }
         @media (max-width: 768px) { .hero-badge { white-space: normal; font-size: 0.7rem; line-height: 1.45; text-align: left; } }
+        /* Clear the photo's orbit rings so they never touch the name */
+        .hero-top { gap: 3.8rem; }
+        @media (max-width: 768px) { .hero-top { gap: 1.2rem; } }
+        .hero-panel { max-width: 790px; padding-left: 3.4rem; padding-right: 2.6rem; }
+        .hero-badge { font-size: 0.7rem; }
+        @media (max-width: 1280px) { .hero-panel { max-width: 740px; } .hero-badge { font-size: 0.64rem; } }
+        @media (max-width: 768px) { .hero-panel { padding: 1.6rem 1.3rem; } .hero-badge { font-size: 0.7rem; } }
+        @media (max-width: 1360px) and (min-width: 1101px) { .hero-panel { max-width: 700px; } }
     </style>
 </head>
 <body>
@@ -2283,9 +2291,15 @@
                 canvas.width = W * dpr; canvas.height = H * dpr;
                 ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
                 const wide = W > 1100;
-                cx = wide ? W * 0.73 : W * 0.5;
                 cy = H * (wide ? 0.5 : 0.42);
-                scale = Math.min(wide ? W * 0.16 : W * 0.34, H * 0.245);
+                if (wide && W < 1600) {
+                    // Mid-size screens: keep the scene in the free space right of the text card
+                    scale = Math.min(W * 0.125, H * 0.245);
+                    cx = W - scale * 1.6 - 16;
+                } else {
+                    scale = Math.min(wide ? W * 0.16 : W * 0.34, H * 0.245);
+                    cx = wide ? W * 0.73 : W * 0.5;
+                }
             }
 
             function line3(a, b, color, width) {
