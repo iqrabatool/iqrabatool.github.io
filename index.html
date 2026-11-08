@@ -1348,12 +1348,32 @@
         }
         .innov-btn:hover { transform: translateY(-2px); box-shadow: 0 14px 34px rgba(34,211,238,0.45); }
         @media (max-width: 768px) { .innov-content { padding: 1.8rem 1.4rem; } .innov-content h3 { font-size: 1.3rem; } }
+
+        /* Keep the name on one line; switch to the menu button before links get crowded */
+        .logo { white-space: nowrap; flex-shrink: 0; }
+        .nav-container { gap: 1.5rem; }
+        @media (max-width: 1400px) and (min-width: 1181px) {
+            .nav-links { gap: 1.2rem; }
+            .nav-links a { font-size: 0.9rem; }
+        }
+        @media (max-width: 1180px) {
+            .menu-toggle { display: block; }
+            .nav-links {
+                position: fixed; top: 70px; left: -100%; width: 100%;
+                background: var(--dark-burgundy); flex-direction: column; padding: 2rem; gap: 1.2rem;
+                transition: left 0.3s ease; box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+                max-height: calc(100vh - 70px); overflow-y: auto;
+            }
+            .nav-links.active { left: 0; }
+            .nav-links li { width: 100%; text-align: center; }
+            .nav-links a { display: block; padding: 0.8rem; font-size: 1.05rem; }
+        }
     </style>
 </head>
 <body>
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">Dr.Iqra Batool</a>
+            <a href="#" class="logo">Dr. Iqra Batool</a>
             <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#about">About</a></li>
